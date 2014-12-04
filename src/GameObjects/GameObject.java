@@ -1,3 +1,4 @@
+package GameObjects;
 import java.awt.Graphics;
 
 public interface GameObject {
