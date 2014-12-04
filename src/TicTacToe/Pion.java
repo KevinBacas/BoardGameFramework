@@ -20,5 +20,15 @@ public class Pion implements GameObject {
 	public String toString(){
 		return m_pion + "";
 	}
+	
+	public boolean equals(Object o){
+		boolean res = false;
+		if(o instanceof Pion){
+			Pion p = (Pion) o;
+			res = m_pion == p.m_pion;
+		}
+		return res;
+		
+	}
 
 }
