@@ -1,4 +1,5 @@
 Contributors:
 - Kévin BACAS
-- Samy Chekirine
+- Samy CHEKIRINE
 - Clément CARDI
+- Samuel COLPART
