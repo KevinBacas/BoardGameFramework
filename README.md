@@ -5,3 +5,4 @@ Contributors:
 - Samuel COLPART
 - Rafael GARCIA
 - Amine HARRACHI
+- Alexandre BILLARD
