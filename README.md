@@ -3,3 +3,4 @@ Contributors:
 - Samy CHEKIRINE
 - Clément CARDI
 - Samuel COLPART
+- Rafael GARCIA
