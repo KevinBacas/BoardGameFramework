@@ -34,11 +34,6 @@ public class TicTacToeEngine extends GameEngine {
 	public void end() {
 		TicTacToeModel model = (TicTacToeModel) getModel();
 		System.out.println("La partie est terminée");
-		if(model.hasAlignment()){
-			System.out.println("Le gagnant est : " + getModel().getCurrentPlayer());
-		}else{
-			System.out.println("Match nul !");
-		}
 	}
 
 }
