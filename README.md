@@ -4,3 +4,4 @@ Contributors:
 - Clément CARDI
 - Samuel COLPART
 - Rafael GARCIA
+- Alexandre BILLARD
