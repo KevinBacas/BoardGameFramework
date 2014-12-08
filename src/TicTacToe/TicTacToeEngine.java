@@ -1,7 +1,6 @@
 package TicTacToe;
 
 import java.util.Scanner;
-
 import GameLoop.GameEngine;
 import GameLoop.Player;
 
@@ -33,7 +32,16 @@ public class TicTacToeEngine extends GameEngine {
 	@Override
 	public void end() {
 		TicTacToeModel model = (TicTacToeModel) getModel();
+		Player p = model.getWinner();
 		System.out.println("La partie est terminée");
+		if(p != null)
+		{
+			System.out.println(p + " a gagné.");
+		}
+		else
+		{
+			System.out.println("Il y a égalité.");
+		}
 	}
 
 }

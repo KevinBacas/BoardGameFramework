@@ -3,6 +3,7 @@ package TicTacToe;
 import java.awt.Graphics;
 
 import GameLoop.Model;
+import GameLoop.Player;
 import GameObjects.Board2D;
 import GameObjects.GameObject;
 
@@ -34,6 +35,15 @@ public class TicTacToeModel extends Model {
 	
 	public void draw(Graphics g){
 		System.out.println(m_board);
+	}
+
+	public Player getWinner() {
+		Player res = null;
+		if(m_ruleHasAlignment.checkRule(this))
+		{
+			res = getCurrentPlayer();
+		}
+		return res;
 	}
 
 }
