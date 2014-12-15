@@ -2,6 +2,7 @@ package TicTacToe;
 
 import java.util.Scanner;
 
+import GameLoop.Action;
 import GameLoop.Controller;
 import GameLoop.Model;
 import GameLoop.Player;
@@ -42,6 +43,12 @@ public class TicTacToeController extends Controller {
 	
 	private boolean isValidInput(int row, int col){
 		return (row > -1 && col > -1 && row < 3 && col < 3);
+	}
+
+	@Override
+	public void makeAction(Action a) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
