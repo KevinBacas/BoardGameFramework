@@ -5,7 +5,7 @@ import java.util.Random;
 
 import GameObjects.GameObject;
 
-public class TokenStick  implements GameObject{
+public class TokenStick implements GameObject{
 
 	int N;
 	

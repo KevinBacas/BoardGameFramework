@@ -8,8 +8,6 @@ public abstract class Action {
 		return label;
 	}
 	
-	public boolean isLegal(Model model) {
-		return true;
-	}
+	public abstract boolean isLegal(Model model);
 	
 }

@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 import GameObjects.GameObject;
 
-public class TokenPlayer  implements GameObject{
+public class TokenPlayer implements GameObject{
 
 	String color;
 	
