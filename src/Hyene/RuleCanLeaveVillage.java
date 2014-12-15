@@ -17,7 +17,7 @@ public class RuleCanLeaveVillage extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		Player p = model.getCurrentPlayer();
+		HyenePlayer p = model.getCurrentPlayer();
 		if(p.getnbTaba() < 1)
 			res = false;
 		return res;

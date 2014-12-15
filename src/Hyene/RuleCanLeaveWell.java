@@ -2,7 +2,7 @@ import GameLoop.Model;
 import GameLoop.Player;
 import GameLoop.Rule;
 
-public class RuleCanEarnTaba extends Rule {
+public class RuleCanLeaveWell extends Rule {
 	
 	public boolean checkRule(Model model){
 		boolean res = false;
@@ -13,14 +13,15 @@ public class RuleCanEarnTaba extends Rule {
 		return res;
 	}
 	
-	public boolean checkRule(HyeneModel model, int StickResult){
+	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		if(StickResult != 1)
+		HyenePlayer p = model.getCurrentPlayer();
+		if(p.getnbTaba() < 4)
 			res = false;
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut gagner un Taba!";
+		return "Le joueur peut quitter le puits!";
 	}
 }
