@@ -47,8 +47,7 @@ public class TicTacToeController extends Controller {
 
 	@Override
 	public void makeAction(Action a) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 }

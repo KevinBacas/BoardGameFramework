@@ -21,13 +21,13 @@ public class RuleCanEarnTaba extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		Player p = model.getCurrentPlayer();
+		
 		
 		
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut quitter le village!";
+		return "Le joueur peut gagner un Taba!";
 	}
 }
