@@ -1,7 +1,6 @@
 package Hyene;
 
 import java.awt.Graphics;
-
 import GameLoop.Model;
 import GameLoop.Player;
 import GameObjects.Board2D;
