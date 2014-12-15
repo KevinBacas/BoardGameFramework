@@ -16,6 +16,8 @@ public abstract class Controller {
     
     public abstract void update();
     
+    public abstract void makeAction(Action a);
+    
     public Model getModel(){
     	return m_model;
     }
