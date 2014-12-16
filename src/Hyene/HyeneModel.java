@@ -46,8 +46,11 @@ public class HyeneModel extends Model{
 
 	@Override
 	public boolean isGameEnded() {
-		//for (int i = 1; i < NUMBER_SQUARES; i++)
-		return false;
+		for (int i = 1; i < NUMBER_SQUARES; i++){
+			if (!(m_board.get(1, i) instanceof TokenPlayer))
+				return false;
+		}
+		return true;
 	}
 	
 }
