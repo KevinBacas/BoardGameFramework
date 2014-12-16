@@ -18,6 +18,13 @@ public abstract class Model {
 		}
 	}
 	
+	public void removePlayer(Player player){
+		if(m_current_player == player){
+			this.toNextPlayer();
+		}
+		m_players.remove(player);
+	}
+	
 	public void draw(Graphics g){
 		System.out.println("Current player : " + m_current_player);
 	}

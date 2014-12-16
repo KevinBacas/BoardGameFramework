@@ -13,7 +13,7 @@ public class HyeneModel extends Model{
 	private TokenStick[] m_sticks;
 	private ArrayList<HyenePlayer> m_winners;
 	private ArrayList<HyenePlayer> m_losers;
-	private ArrayList<HyenePlayer> m_playersInGame;
+	private HyenePlayer m_hyene;
 
 	
 	public HyeneModel(){
@@ -21,7 +21,6 @@ public class HyeneModel extends Model{
 		playing_board = new Board2D(1, NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
-		m_playersInGame = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[4];
 	}
 	
