@@ -1,7 +1,7 @@
 package Hyene;
 
 import java.awt.Graphics;
-import java.util.List;
+import java.util.ArrayList;
 
 import Framework.Model.Model;
 import Framework.Model.GameObjectsModel.Board2D;
@@ -9,21 +9,24 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
 	private final static int NUMBER_SQUARES = 57;
-	private Board2D m_board;
+	private Board2D playing_board;
 	private TokenStick[] m_sticks;
-	private List<HyenePlayer> m_winners;
-	private List<HyenePlayer> m_losers;
-	private List<HyenePlayer> m_playersInGame;
+	private ArrayList<HyenePlayer> m_winners;
+	private ArrayList<HyenePlayer> m_losers;
+	private ArrayList<HyenePlayer> m_playersInGame;
 
 	
 	public HyeneModel(){
 		super();
-		m_board = new Board2D(1, NUMBER_SQUARES);
+		playing_board = new Board2D(1, NUMBER_SQUARES);
+		m_winners = new ArrayList<HyenePlayer>();
+		m_losers = new ArrayList<HyenePlayer>();
+		m_playersInGame = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[4];
 	}
 	
 	public GameObjectModel getElement(int i){
-		return m_board.get(1,i);
+		return playing_board.get(1,i);
 	}
 	
 	public void setElement(int i, GameObjectModel go){
@@ -34,7 +37,7 @@ public class HyeneModel extends Model{
 				break;
 			}
 		}*/
-		m_board.set(1,i, go);
+		playing_board.set(1,i, go);
 	}
 	
 	public TokenStick[] getSticks(){
@@ -46,13 +49,13 @@ public class HyeneModel extends Model{
 	}
 	
 	public void draw(Graphics g){
-		System.out.println(m_board);
+		System.out.println(playing_board);
 	}
 
 	@Override
 	public boolean isGameEnded() {
 		for (int i = 1; i < NUMBER_SQUARES; i++){
-			if (!(m_board.get(1, i) instanceof TokenPlayer))
+			if (!(playing_board.get(1, i) instanceof TokenPlayer))
 				return false;
 		}
 		return true;
