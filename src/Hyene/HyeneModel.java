@@ -1,6 +1,7 @@
 package Hyene;
 
 import java.awt.Graphics;
+import java.util.List;
 
 import Framework.Model.Model;
 import Framework.Model.GameObjectsModel.Board2D;
@@ -10,6 +11,10 @@ public class HyeneModel extends Model{
 	private final static int NUMBER_SQUARES = 57;
 	private Board2D m_board;
 	private TokenStick[] m_sticks;
+	private List<HyenePlayer> m_winners;
+	private List<HyenePlayer> m_losers;
+	private List<HyenePlayer> m_playersInGame;
+
 	
 	public HyeneModel(){
 		super();

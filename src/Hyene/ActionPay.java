@@ -14,7 +14,7 @@ public class ActionPay extends Action{
 	public void doAction(Model model) {
 		if(model instanceof HyeneModel){
 			HyeneModel hmod = (HyeneModel) model;
-			//Player p = hmod.m_current_player;
+			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
 		}
 	}
 
