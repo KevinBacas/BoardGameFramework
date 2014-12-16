@@ -1,8 +1,9 @@
 package TicTacToe;
 
 import java.util.Scanner;
-import GameLoop.GameEngine;
-import GameLoop.Player;
+
+import Framework.Controller.GameEngine;
+import Framework.Controller.Player;
 
 public class TicTacToeEngine extends GameEngine {
 	

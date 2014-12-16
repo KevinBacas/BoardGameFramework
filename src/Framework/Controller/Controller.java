@@ -1,4 +1,7 @@
-package GameLoop;
+package Framework.Controller;
+
+import Framework.Model.Model;
+import Framework.View.View;
 
 public abstract class Controller {
 

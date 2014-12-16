@@ -1,8 +1,8 @@
 package Hyene;
 
-import GameLoop.Model;
-import GameLoop.Player;
-import GameLoop.Rule;
+import Framework.Controller.Player;
+import Framework.Controller.Rule;
+import Framework.Model.Model;
 
 public class RuleCanLeaveVillage extends Rule {
 
@@ -17,7 +17,7 @@ public class RuleCanLeaveVillage extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		HyenePlayer p = model.getCurrentPlayer();
+		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
 		if(p.getnbTaba() < 1)
 			res = false;
 		return res;

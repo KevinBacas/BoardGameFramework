@@ -3,9 +3,9 @@ package Hyene;
 import java.awt.Graphics;
 import java.util.Random;
 
-import GameObjects.GameObject;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
-public class TokenStick implements GameObject{
+public class TokenStick implements GameObjectModel{
 
 	int N;
 	
@@ -16,10 +16,6 @@ public class TokenStick implements GameObject{
 	public void roll(){
 		Random rand = new Random();
 		N = rand.nextInt(2);
-	}
-	
-	@Override
-	public void draw(Graphics g) {
 	}
 
 }

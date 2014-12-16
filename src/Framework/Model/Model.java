@@ -1,6 +1,8 @@
-package GameLoop;
+package Framework.Model;
 import java.awt.Graphics;
 import java.util.ArrayList;
+
+import Framework.Controller.Player;
 
 public abstract class Model {
 

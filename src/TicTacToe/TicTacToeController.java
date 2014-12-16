@@ -2,10 +2,10 @@ package TicTacToe;
 
 import java.util.Scanner;
 
-import GameLoop.Action;
-import GameLoop.Controller;
-import GameLoop.Model;
-import GameLoop.Player;
+import Framework.Controller.Action;
+import Framework.Controller.Controller;
+import Framework.Controller.Player;
+import Framework.Model.Model;
 
 public class TicTacToeController extends Controller {
 

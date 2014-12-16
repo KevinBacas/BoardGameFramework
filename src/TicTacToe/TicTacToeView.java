@@ -1,6 +1,6 @@
 package TicTacToe;
 
-import GameLoop.View;
+import Framework.View.View;
 
 public class TicTacToeView extends View {
 

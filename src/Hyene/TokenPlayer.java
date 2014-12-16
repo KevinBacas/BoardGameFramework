@@ -2,18 +2,14 @@ package Hyene;
 
 import java.awt.Graphics;
 
-import GameObjects.GameObject;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
-public class TokenPlayer implements GameObject{
+public class TokenPlayer implements GameObjectModel{
 
 	String color;
 	
 	public TokenPlayer(String _color){
 		color = _color;
-	}
-	
-	@Override
-	public void draw(Graphics g) {
 	}
 
 }

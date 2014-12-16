@@ -2,9 +2,9 @@ package Hyene;
 
 import java.util.Scanner;
 
-import GameLoop.Action;
-import GameLoop.Controller;
-import GameLoop.Model;
+import Framework.Controller.Action;
+import Framework.Controller.Controller;
+import Framework.Model.Model;
 
 public class HyeneController extends Controller{
 

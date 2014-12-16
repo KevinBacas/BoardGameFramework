@@ -1,11 +1,11 @@
 package Hyene;
 
-import GameLoop.Player;
-import GameObjects.GameObject;
+import Framework.Controller.Player;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyenePlayer extends Player{
 
-	GameObject token;
+	GameObjectModel token;
 	
 	int nbTaba;
 	
@@ -13,7 +13,7 @@ public class HyenePlayer extends Player{
 		super(name);
 	}
 	
-	public GameObject getToken() {
+	public GameObjectModel getToken() {
 		return token;
 	}
 	

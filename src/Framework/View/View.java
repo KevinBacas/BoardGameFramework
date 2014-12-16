@@ -1,5 +1,8 @@
-package GameLoop;
+package Framework.View;
 import java.awt.Graphics;
+
+import Framework.Controller.Controller;
+import Framework.Model.Model;
 
 public class View {
 

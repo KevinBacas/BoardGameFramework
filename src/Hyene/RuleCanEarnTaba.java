@@ -1,6 +1,8 @@
-import GameLoop.Model;
-import GameLoop.Player;
-import GameLoop.Rule;
+package Hyene;
+
+import Framework.Controller.Player;
+import Framework.Controller.Rule;
+import Framework.Model.Model;
 
 public class RuleCanEarnTaba extends Rule {
 	

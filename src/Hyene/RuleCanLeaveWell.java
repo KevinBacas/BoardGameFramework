@@ -1,6 +1,8 @@
-import GameLoop.Model;
-import GameLoop.Player;
-import GameLoop.Rule;
+package Hyene;
+
+import Framework.Controller.Player;
+import Framework.Controller.Rule;
+import Framework.Model.Model;
 
 public class RuleCanLeaveWell extends Rule {
 	
@@ -15,7 +17,7 @@ public class RuleCanLeaveWell extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		HyenePlayer p = model.getCurrentPlayer();
+		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
 		if(p.getnbTaba() < 4)
 			res = false;
 		return res;

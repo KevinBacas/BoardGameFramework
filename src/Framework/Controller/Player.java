@@ -1,4 +1,4 @@
-package GameLoop;
+package Framework.Controller;
 
 public class Player {
 
