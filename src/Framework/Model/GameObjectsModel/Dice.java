@@ -7,16 +7,19 @@ public class Dice implements GameObjectModel{
 	public Dice(int nbFaces){
 		m_nbFaces = nbFaces;
 	}
-	public int roll(){
+	
+	public void roll(){
 		m_faceValue = (int)(Math.random() * m_nbFaces) + 1;
-		return m_faceValue;
 	}
+	
 	public void setFaceValue (int faceValue){
 		m_faceValue = faceValue;
 	}
+	
 	public int getFaceValue(){
 		return m_faceValue;
 	}
+	
 	public String toString() {
 		String result = Integer.toString(m_faceValue);
 		return result;
