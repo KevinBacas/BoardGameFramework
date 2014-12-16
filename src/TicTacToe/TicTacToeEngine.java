@@ -3,7 +3,7 @@ package TicTacToe;
 import java.util.Scanner;
 
 import Framework.Controller.GameEngine;
-import Framework.Controller.Player;
+import Framework.Model.Player;
 
 public class TicTacToeEngine extends GameEngine {
 	

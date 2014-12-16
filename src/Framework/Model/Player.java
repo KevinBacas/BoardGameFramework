@@ -1,4 +1,4 @@
-package Framework.Controller;
+package Framework.Model;
 
 public class Player {
 

@@ -1,6 +1,6 @@
 package Hyene;
 
-import Framework.Controller.Player;
+import Framework.Model.Player;
 import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyenePlayer extends Player{

@@ -2,8 +2,6 @@ package Framework.Model;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import Framework.Controller.Player;
-
 public abstract class Model {
 
 	public ArrayList<Player> m_players;

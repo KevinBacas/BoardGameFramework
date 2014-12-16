@@ -1,0 +1,55 @@
+Version longue :
+
+42 cartes :
+	- 3 ensembles dragons rouges
+	- 2 ensembles dragons verts
+	- 1 ensemble dragon d'or
+	- 1 ensemble dragon multicolore
+	- 1 ensemble dragon d'argent
+	- 1 carte dont les faces sont identiques (à la face cachée)
+	- 1 carte avec une tête de dragon multicolore
+	- 1 carte gain comportant 2 diamants
+	- 1 carte pièges comportant 2 boules de feu
+	- 2 cartes pièges comportant une boule de feu
+	- 4 cartes gain comportant 1 diamant
+	
+	chaque ensembles de dragons est composé de 4 carte (tête, queue, pattes arrière, griffes)
+1 jeton par joueur 
+
+Le board est disposé comme un rectangle de 7*6 cartes
+
+A chaque tour le joueur peut retourner deux cartes.
+	- S'il retourne deux cartes de même formes il peut les garder et rejouer
+	- S'il retourne deux cartes de même couleurs il peut les garder mais ne rejoue pas
+	- Si les cartes ne constituent ni une paire de couleurs ni une paire de formes il replace les cartes à leur emplacement et finit son tour
+	
+	Dans le cas ou le joueur ne veut pas garder les cartes il peut les replacer à leur emplacement initial ou les changer de places
+	
+	Un joueur ne peut avoir dans sa main que 4 cartes maximum. S'il dépasse les 4 cartes il devra replacer les dernières cartes tirées
+	
+	Pour constituer un dragon le joueur doit posséder les 4 parties du corps de celui-ci et qu'il soit de la même couleur. Il peut cependant remplacer une partie du corps d'un dragon par celle du dragon d'argent. Dans ce cas le dragon constitué (3 cartes dragons de même couleur, 1 carte du dragon d'argent) vaudra -5pts lors du comptage. Le dragon arc-en-ciel doit être lui constituer complétement sans de remplacement par le dragon d'argent.
+	dragon rouge : 15 pts
+	dragon vert : 20 pts
+	dragon d'or : 30 pts
+	dragon arc-en-ciel : 30 pts
+	dragon d'argent : 40 pts
+	
+Les cartes pièges : 
+	- boule de feu : oblige à offrir au joueur qui suit dans l'ordre du jeu a piocher dans sa main une carte (2 cartes dans le cas des deux boules de feu)
+	- carte verso/recto identique :
+		- si première carte remet la carte, ne retourne pas la deuxième et passe son tour
+		- si deuxième carte remet les deux cartes à leur position et passe son tour
+
+Les cartes gains :
+	- carte un diamant : donne le droit au joueur qui la retourne de prendre une carte dans la main de l'asversaire qu'il veut (2 diamants = 2 cartes chez un ou deux adversaires de son choix)
+	- carte tête dragon multicolore : peut prendre l'intégralité de la main d'un adversaire au choix
+	
+Les jetons :
+	- chaque joueur à un jeton en début de partie
+	- il peut utiliser un jeton que durant son tour (peu importe le moment de son tour)
+	- un jeton posé sur une carte bloque celle ci
+	- une carte peut être libérée de son jeton que par un joueur qui vient de retourner une paire de forme s'il le souhaite
+	
+Fin de partie :
+	- 4 cartes libres de jeton (dont carte verso/recto identique) et plus possibles de faire de pair
+	- + de 4 cartes libres (dont carte verso/recto identique) et qu'un joueur ayant retourné une pair la retourne et qu'un tour de jeu passe 
