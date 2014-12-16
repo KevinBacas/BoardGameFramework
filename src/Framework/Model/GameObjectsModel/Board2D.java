@@ -26,6 +26,14 @@ public class Board2D implements GameObjectModel {
 		}
 	}
 	
+	public int getHeight() {
+		return m_height;
+	}
+	
+	public int getWidth() {
+		return m_width;
+	}
+	
     public String toString() {
     	String res = "";
     	for(int i = 0 ; i < m_height - 1 ; ++i)
@@ -76,5 +84,4 @@ public class Board2D implements GameObjectModel {
 
 		return res;
     }
-
 }

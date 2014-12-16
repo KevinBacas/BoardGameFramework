@@ -10,6 +10,10 @@ public class Pion implements GameObjectModel {
 		m_pion = pion;
 	}
 	
+	public char getPion() {
+		return m_pion;
+	}
+	
 	public String toString(){
 		return m_pion + "";
 	}
@@ -23,5 +27,4 @@ public class Pion implements GameObjectModel {
 		return res;
 		
 	}
-
 }
