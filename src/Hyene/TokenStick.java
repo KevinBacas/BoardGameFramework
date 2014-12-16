@@ -1,6 +1,5 @@
 package Hyene;
 
-import java.awt.Graphics;
 import java.util.Random;
 
 import Framework.Model.GameObjectsModel.GameObjectModel;

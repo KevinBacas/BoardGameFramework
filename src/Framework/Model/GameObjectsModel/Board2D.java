@@ -1,7 +1,5 @@
 package Framework.Model.GameObjectsModel;
 
-import java.awt.Graphics;
-
 public class Board2D implements GameObjectModel {
 
 	private GameObjectModel m_board[];

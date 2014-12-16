@@ -19,7 +19,7 @@ public class TicTacToeEngine extends GameEngine {
 		TicTacToeController tictactoe_controller = new TicTacToeController();
 		TicTacToeView tictactoe_view = new TicTacToeView();
 
-		tictactoe_view.init(tictactoe_model, tictactoe_controller);
+		tictactoe_view.init(tictactoe_controller);
 		tictactoe_controller.init(tictactoe_model, tictactoe_view);
 
 		tictactoe_model.addPlayer(p1);

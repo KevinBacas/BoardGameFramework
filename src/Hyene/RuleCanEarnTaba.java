@@ -1,6 +1,5 @@
 package Hyene;
 
-import Framework.Controller.Player;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
 

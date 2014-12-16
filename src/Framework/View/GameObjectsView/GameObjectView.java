@@ -2,8 +2,16 @@ package Framework.View.GameObjectsView;
 
 import java.awt.Graphics;
 
-public interface GameObjectView {
+import Framework.Model.GameObjectsModel.GameObjectModel;
+
+public abstract class GameObjectView {
 	
-	public void draw(Graphics g);
+	private GameObjectModel m_model;
+	
+	public GameObjectView(GameObjectModel model){
+		m_model = model;
+	}
+	
+	public abstract void draw(Graphics g);
 
 }

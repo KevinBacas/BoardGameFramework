@@ -19,7 +19,14 @@ public abstract class Controller {
     
     public abstract void update();
     
-    public abstract void makeAction(Action a);
+    public void receiveAction(Action action){
+    	if(action.isLegal(m_model)){
+    		action.doAction(m_model);
+    	}else{
+    		//TODO: Traitement de l'erreur.
+    		//TODO: Affichage de l'erreur.
+    	}
+    }
     
     public Model getModel(){
     	return m_model;

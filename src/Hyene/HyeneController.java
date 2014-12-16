@@ -31,7 +31,7 @@ public class HyeneController extends Controller{
 	}
 
 	@Override
-	public void makeAction(Action a) {
+	public void receiveAction(Action a) {
 		if(a instanceof ActionRoll){
 			
 		}

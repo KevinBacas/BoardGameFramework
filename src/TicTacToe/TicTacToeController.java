@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import Framework.Controller.Action;
 import Framework.Controller.Controller;
-import Framework.Controller.Player;
 import Framework.Model.Model;
 
 public class TicTacToeController extends Controller {
@@ -46,7 +45,7 @@ public class TicTacToeController extends Controller {
 	}
 
 	@Override
-	public void makeAction(Action a) {
+	public void receiveAction(Action a) {
 
 	}
 
