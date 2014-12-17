@@ -1,6 +1,7 @@
 package Framework.Controller;
 
 import Framework.Model.Model;
+import Framework.Model.Player;
 import Framework.View.View;
 
 public abstract class Controller {

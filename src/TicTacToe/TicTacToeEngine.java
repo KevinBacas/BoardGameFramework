@@ -4,8 +4,9 @@ import java.awt.Dimension;
 import java.util.Scanner;
 
 import Framework.Controller.GameEngine;
-import Framework.Controller.Player;
 import Framework.View.Frame;
+import Framework.Model.Model;
+import Framework.Model.Player;
 
 public class TicTacToeEngine extends GameEngine {
 	
@@ -13,9 +14,9 @@ public class TicTacToeEngine extends GameEngine {
 	public void init(){
     	Scanner scanner = new Scanner(System.in);
         System.out.print("Entrez le nom du Joueur X : ");
-    	Player p1 = new TicTacToePlayer(scanner.nextLine(), new Pion('X'));
+    	TicTacToePlayer p1 = new TicTacToePlayer(scanner.nextLine(), new Pion('X'));
         System.out.print("Entrez le nom du Joueur O : ");
-    	Player p2 = new TicTacToePlayer(scanner.nextLine(), new Pion('O'));
+        TicTacToePlayer p2 = new TicTacToePlayer(scanner.nextLine(), new Pion('O'));
 		
 		TicTacToeModel tictactoe_model = new TicTacToeModel();
 		TicTacToeController tictactoe_controller = new TicTacToeController();
@@ -40,8 +41,8 @@ public class TicTacToeEngine extends GameEngine {
 
 	@Override
 	public void end() {
-		TicTacToeModel model = (TicTacToeModel) getModel();
-		Player p = model.getWinner();
+		Model model = getModel();
+		Player p = model.getCurrentPlayer();
 		System.out.println("La partie est terminée");
 		if(p != null)
 		{

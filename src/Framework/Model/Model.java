@@ -2,8 +2,6 @@ package Framework.Model;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-import Framework.Controller.Player;
-
 public abstract class Model {
 
 	public ArrayList<Player> m_players;
@@ -18,6 +16,13 @@ public abstract class Model {
 		if(m_current_player == null){
 			m_current_player = player;
 		}
+	}
+	
+	public void removePlayer(Player player){
+		if(m_current_player == player){
+			this.toNextPlayer();
+		}
+		m_players.remove(player);
 	}
 	
 	public void draw(Graphics g){

@@ -3,7 +3,7 @@ package Hyene;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
 
-public class RuleCanLeaveWell extends Rule {
+public class RuleMotherCanLeaveWell extends Rule {
 	
 	public boolean checkRule(Model model){
 		boolean res = false;
@@ -23,6 +23,6 @@ public class RuleCanLeaveWell extends Rule {
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut quitter le puits!";
+		return "La mere du joueur peut quitter le puits!";
 	}
 }

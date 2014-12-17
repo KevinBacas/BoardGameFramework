@@ -1,7 +1,7 @@
 package TicTacToe;
 
 import Framework.Controller.Action;
-import Framework.Controller.Player;
+import Framework.Model.Player;
 import Framework.Model.Model;
 
 public class ActionJouer extends Action {

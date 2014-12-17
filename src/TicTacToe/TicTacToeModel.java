@@ -2,8 +2,8 @@ package TicTacToe;
 
 import java.awt.Graphics;
 
-import Framework.Controller.Player;
 import Framework.Model.Model;
+import Framework.Model.Player;
 import Framework.Model.GameObjectsModel.Board2D;
 import Framework.Model.GameObjectsModel.GameObjectModel;
 

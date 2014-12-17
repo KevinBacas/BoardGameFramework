@@ -12,8 +12,10 @@ public class ActionPay extends Action{
 
 	@Override
 	public void doAction(Model model) {
-		// TODO Auto-generated method stub
-		
+		if(model instanceof HyeneModel){
+			HyeneModel hmod = (HyeneModel) model;
+			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
+		}
 	}
 
 	@Override
