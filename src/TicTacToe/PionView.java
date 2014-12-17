@@ -17,19 +17,10 @@ public class PionView extends GameObjectView {
 	
 	public void draw(Graphics g, JPanel p, int x, int y, int height, int width) {
 		Image img = null;
-		
-		if (((Pion)getModel()).getPion() == 'X') {
-			try {
-				img = ImageIO.read(new File("cross.jpg"));
-				g.drawImage(img, x, y, p);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		else if (((Pion)getModel()).getPion() == 'O')
+		if(getModel() == null)
 		{
 			try {
-				img = ImageIO.read(new File("round.jpg"));
+				img = ImageIO.read(new File("empty.jpg"));
 				g.drawImage(img, x, y, p);
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -37,11 +28,22 @@ public class PionView extends GameObjectView {
 		}
 		else
 		{
-			try {
-				img = ImageIO.read(new File("empty.jpg"));
-				g.drawImage(img, x, y, p);
-			} catch (IOException e) {
-				e.printStackTrace();
+			if (((Pion)getModel()).getPion() == 'X') {
+				try {
+					img = ImageIO.read(new File("cross.jpg"));
+					g.drawImage(img, x, y, p);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			else if (((Pion)getModel()).getPion() == 'O')
+			{
+				try {
+					img = ImageIO.read(new File("round.jpg"));
+					g.drawImage(img, x, y, p);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

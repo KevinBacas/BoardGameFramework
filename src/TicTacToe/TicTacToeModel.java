@@ -32,10 +32,6 @@ public class TicTacToeModel extends Model {
 	public boolean isGameEnded() {
 		return m_ruleHasAlignment.checkRule(this) || m_ruleIsBoardFull.checkRule(this);
 	}
-	
-	public void draw(Graphics g){
-		System.out.println(m_board);
-	}
 
 	public Player getWinner() {
 		Player res = null;

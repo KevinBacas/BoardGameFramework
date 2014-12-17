@@ -25,7 +25,7 @@ public abstract class GameEngine {
 
 	public void play(){
 		init();
-
+		
 		while(!m_model.isGameEnded()){
 			m_controller.update();
 			m_view.repaint();

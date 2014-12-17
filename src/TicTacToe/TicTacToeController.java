@@ -10,26 +10,7 @@ public class TicTacToeController extends Controller {
 
 	@Override
 	public void update() {
-		TicTacToeModel model = getRealModel();
-		TicTacToePlayer p = (TicTacToePlayer) getCurrentPlayer();
-
-		Scanner scanner = new Scanner(System.in);
-        System.out.println("Au tour de " + p);
-        System.out.println("Entrez une position : (format : row col)");
-        int row = scanner.nextInt();
-        int col = scanner.nextInt();
-        while( !isValidInput(row, col) || !(model.getElement(row, col) == null)){
-            System.out.println("Position invalide !");
-            System.out.println("Entrez une position : (format : row col)");
-            row = scanner.nextInt();
-            col = scanner.nextInt();
-        }
-        
-        model.setElement(row, col, p.getPion());
-        
-        if(!model.isGameEnded()){
-        	model.toNextPlayer();
-        }
+		//TODO: Gestion d'une file d'actions
 	}
 	
 	private TicTacToeModel getRealModel(){
@@ -46,7 +27,14 @@ public class TicTacToeController extends Controller {
 
 	@Override
 	public void receiveAction(Action a) {
-
+		if(a.isLegal(getRealModel()))
+		{
+			a.doAction(getRealModel());
+			if(!getModel().isGameEnded())
+			{
+				getModel().toNextPlayer();
+			}
+		}
 	}
 
 }

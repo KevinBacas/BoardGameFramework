@@ -1,24 +1,32 @@
 package Framework.View;
-import java.awt.Graphics;
+
+import Framework.Model.Model;
+import Framework.Controller.Controller;
+import Framework.Controller.Action;
 
 import javax.swing.JPanel;
 
-import Framework.Controller.Action;
-import Framework.Controller.Controller;
+import java.awt.Graphics;
 
-public class View extends JPanel {
-
+public abstract class View extends JPanel {
+	static final long serialVersionUID = 1;
+	protected Model m_model;
     private Controller m_controller;
+  
+    public void init(Model model, Controller controller) {
+    	m_model = model;
+    	m_controller = controller;
+    }
     
-    protected void sendActionToController(Action action){
+    public void initListener(Listener listener) {
+    	addMouseListener(listener);
+    	addMouseWheelListener(listener);
+    	addMouseMotionListener(listener);
+    }
+    
+    public void sendActionToController(Action action) {
     	m_controller.receiveAction(action);
     }
 
-    public void draw(Graphics g) {
-    	//TODO: draw
-    }
-
-    public void init(Controller controller){
-    	m_controller = controller;
-    }
+    public abstract void paintComponent(Graphics g);
 }

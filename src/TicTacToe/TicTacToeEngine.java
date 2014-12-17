@@ -1,9 +1,11 @@
 package TicTacToe;
 
+import java.awt.Dimension;
 import java.util.Scanner;
 
 import Framework.Controller.GameEngine;
 import Framework.Controller.Player;
+import Framework.View.Frame;
 
 public class TicTacToeEngine extends GameEngine {
 	
@@ -18,10 +20,16 @@ public class TicTacToeEngine extends GameEngine {
 		TicTacToeModel tictactoe_model = new TicTacToeModel();
 		TicTacToeController tictactoe_controller = new TicTacToeController();
 		TicTacToeView tictactoe_view = new TicTacToeView();
-
-		tictactoe_view.init(tictactoe_controller);
+		TicTacToeListener tictactoe_listener = new TicTacToeListener();
+		
+		tictactoe_view.init(tictactoe_model, tictactoe_controller);
 		tictactoe_controller.init(tictactoe_model, tictactoe_view);
-
+		tictactoe_listener.init(tictactoe_view, tictactoe_controller);
+		tictactoe_view.initListener(tictactoe_listener);
+		tictactoe_view.setPreferredSize(new Dimension(300, 300));
+		
+		new Frame("Tic-tac-toe", tictactoe_view);
+		
 		tictactoe_model.addPlayer(p1);
 		tictactoe_model.addPlayer(p2);
 
