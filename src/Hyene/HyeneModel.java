@@ -18,7 +18,7 @@ public class HyeneModel extends Model{
 	
 	public HyeneModel(){
 		super();
-		playing_board = new Board2D(1, NUMBER_SQUARES);
+		playing_board = new Board2D(m_players.size(), NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[4];
