@@ -21,7 +21,7 @@ public class HyeneModel extends Model{
 		playing_board = new Board2D(1, NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
-		m_sticks = new TokenStick[4];
+		m_sticks = new TokenStick[3];
 	}
 	
 	public GameObjectModel getElement(int i){
@@ -58,6 +58,14 @@ public class HyeneModel extends Model{
 				return false;
 		}
 		return true;
+	}
+	
+	public int findElement(GameObjectModel go) {
+		int i = 0;
+		do{
+			i++;
+		}while(i != playing_board.getWidth() && this.getElement(i) != go);
+		return i;
 	}
 	
 }
