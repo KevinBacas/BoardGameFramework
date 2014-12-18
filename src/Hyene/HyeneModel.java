@@ -9,6 +9,7 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
 	private final static int NUMBER_SQUARES = 57;
+	private final int NUMBER_PLAYERS = m_players.size();
 	private Board2D playing_board;
 	private TokenStick[] m_sticks;
 	private ArrayList<HyenePlayer> m_winners;
@@ -18,17 +19,23 @@ public class HyeneModel extends Model{
 	
 	public HyeneModel(){
 		super();
-		playing_board = new Board2D(1, NUMBER_SQUARES);
+		playing_board = new Board2D(NUMBER_PLAYERS, NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[3];
 	}
 	
-	public GameObjectModel getElement(int i){
-		return playing_board.get(1,i);
+	public ArrayList<GameObjectModel> getElement(int i) {
+		ArrayList<GameObjectModel> list = new ArrayList<GameObjectModel>();
+		
+		for (int k = 0; k < NUMBER_PLAYERS; k++)
+			if (playing_board.get(k, i) != null)
+				list.add(playing_board.get(k, i));
+			
+		return list;
 	}
 	
-	public void setElement(int i, GameObjectModel go){
+	public void setElement(int i, GameObjectModel go) {
 		/*GameObjectModel objArray = m_board.get(1,i);
 		for (GameObjectModel model: objArray){
 			if (model == null){
@@ -36,7 +43,8 @@ public class HyeneModel extends Model{
 				break;
 			}
 		}*/
-		playing_board.set(1,i, go);
+		
+		playing_board.set(1, i, go);
 	}
 	
 	public TokenStick[] getSticks(){
