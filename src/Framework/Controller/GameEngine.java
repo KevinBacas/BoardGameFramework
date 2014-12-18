@@ -1,4 +1,7 @@
-package GameLoop;
+package Framework.Controller;
+
+import Framework.Model.Model;
+import Framework.View.View;
 
 public abstract class GameEngine {
 
@@ -25,7 +28,7 @@ public abstract class GameEngine {
 		
 		while(!m_model.isGameEnded()){
 			m_controller.update();
-			m_view.draw(null);
+			m_view.repaint();
 		}
 		
 		end();

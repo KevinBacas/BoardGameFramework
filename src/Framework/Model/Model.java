@@ -1,4 +1,4 @@
-package GameLoop;
+package Framework.Model;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -16,6 +16,13 @@ public abstract class Model {
 		if(m_current_player == null){
 			m_current_player = player;
 		}
+	}
+	
+	public void removePlayer(Player player){
+		if(m_current_player == player){
+			this.toNextPlayer();
+		}
+		m_players.remove(player);
 	}
 	
 	public void draw(Graphics g){

@@ -1,7 +1,7 @@
 package TicTacToe;
 
-import GameLoop.Model;
-import GameLoop.Rule;
+import Framework.Controller.Rule;
+import Framework.Model.Model;
 
 public class RuleHasAlignment extends Rule{
 

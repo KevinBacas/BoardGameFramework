@@ -1,6 +1,6 @@
 package TicTacToe;
 
-import GameLoop.Player;
+import Framework.Model.Player;
 
 public class TicTacToePlayer extends Player {
 

@@ -1,36 +1,37 @@
-package GameObjects;
+package Framework.Model.GameObjectsModel;
 
-import java.awt.Graphics;
+public class Board2D implements GameObjectModel {
 
-public class Board2D implements GameObject {
-
-	private GameObject m_board[];
+	private GameObjectModel m_board[];
 	private int m_height;
 	private int m_width;
 	  
 	public Board2D(int height, int width){
 		m_height = height;
 		m_width = width;
-		m_board = new GameObject[m_height * m_width];
+		m_board = new GameObjectModel[m_height * m_width];
 	}
 	
-	public GameObject get(int i, int j) {
-		GameObject res = null;
+	public GameObjectModel get(int i, int j) {
+		GameObjectModel res = null;
 		if(i > -1 && j > -1 && i < m_height && j < m_width){
 			res = m_board[i * m_width + j];
 		}
 		return res;
 	}
 	
-	public void set(int i, int j, GameObject go) {
+	public void set(int i, int j, GameObjectModel go) {
 		if(i > -1 && j > -1 && i < m_height && j < m_width){
 			m_board[i * m_width + j] = go;
 		}
 	}
-
-	@Override
-	public void draw(Graphics g) {
-		System.out.println(this);
+	
+	public int getHeight() {
+		return m_height;
+	}
+	
+	public int getWidth() {
+		return m_width;
 	}
 	
     public String toString() {
@@ -83,5 +84,4 @@ public class Board2D implements GameObject {
 
 		return res;
     }
-
 }

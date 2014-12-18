@@ -1,6 +1,6 @@
-package GameObjects;
+package Framework.Model.GameObjectsModel;
 
-public class Card {
+public class Card implements GameObjectModel {
 	private String m_color;
 	private int m_value;
 	

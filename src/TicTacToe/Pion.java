@@ -1,20 +1,17 @@
 package TicTacToe;
 
-import java.awt.Graphics;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
-import GameObjects.GameObject;
-
-public class Pion implements GameObject {
+public class Pion implements GameObjectModel {
 	
 	private char m_pion;
 	
 	public Pion(char pion){
 		m_pion = pion;
 	}
-
-	@Override
-	public void draw(Graphics g) {
-		
+	
+	public char getPion() {
+		return m_pion;
 	}
 	
 	public String toString(){
@@ -30,5 +27,4 @@ public class Pion implements GameObject {
 		return res;
 		
 	}
-
 }

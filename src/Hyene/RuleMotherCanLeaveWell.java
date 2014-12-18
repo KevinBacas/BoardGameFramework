@@ -1,29 +1,28 @@
 package Hyene;
 
-import GameLoop.Model;
-import GameLoop.Player;
-import GameLoop.Rule;
+import Framework.Controller.Rule;
+import Framework.Model.Model;
 
-public class RuleCanLeaveWell extends Rule {
+public class RuleMotherCanLeaveWell extends Rule {
 	
 	public boolean checkRule(Model model){
 		boolean res = false;
 		if(model instanceof HyeneModel){
-			HyeneModel hmod = (HyeneModel) model;
-			res = checkRule(hmod);
+			HyeneModel tttmod = (HyeneModel) model;
+			res = checkRule(tttmod);
 		}
 		return res;
 	}
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		HyenePlayer p = model.getCurrentPlayer();
+		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
 		if(p.getnbTaba() < 4)
 			res = false;
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut quitter le puits!";
+		return "La mere du joueur peut quitter le puits!";
 	}
 }

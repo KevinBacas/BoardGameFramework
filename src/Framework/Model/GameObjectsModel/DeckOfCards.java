@@ -1,10 +1,10 @@
-package GameObjects;
+package Framework.Model.GameObjectsModel;
 
 import java.util.HashSet;
 
 //TODO: pickRandomCard(nombre de cartes à piocher), equals(DeckOfCards), constructeur pour cartes pour un joueur
 
-public class DeckOfCards {
+public class DeckOfCards implements GameObjectModel {
 	private HashSet<Card> m_cards;
 	private int m_size;
 	

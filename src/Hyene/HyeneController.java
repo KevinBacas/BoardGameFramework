@@ -2,9 +2,9 @@ package Hyene;
 
 import java.util.Scanner;
 
-import GameLoop.Action;
-import GameLoop.Controller;
-import GameLoop.Model;
+import Framework.Controller.Action;
+import Framework.Controller.Controller;
+import Framework.Model.Model;
 
 public class HyeneController extends Controller{
 
@@ -31,7 +31,7 @@ public class HyeneController extends Controller{
 	}
 
 	@Override
-	public void makeAction(Action a) {
+	public void receiveAction(Action a) {
 		if(a instanceof ActionRoll){
 			
 		}

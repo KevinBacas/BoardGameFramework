@@ -3,8 +3,8 @@ package Hyene;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
 
-public class RuleCanEarnTaba extends Rule {
-	
+public class RuleHyeneCanLeaveVillage extends Rule {
+
 	public boolean checkRule(Model model){
 		boolean res = false;
 		if(model instanceof HyeneModel){
@@ -14,14 +14,15 @@ public class RuleCanEarnTaba extends Rule {
 		return res;
 	}
 	
-	public boolean checkRule(HyeneModel model, int StickResult){
+	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		if(StickResult != 1)
+		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
+		if(p.getnbTaba() < 2)
 			res = false;
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut gagner un Taba!";
+		return "La hyene du joueur peut quitter le village!";
 	}
 }

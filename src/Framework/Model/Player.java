@@ -1,4 +1,4 @@
-package GameLoop;
+package Framework.Model;
 
 public class Player {
 

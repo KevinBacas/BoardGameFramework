@@ -1,13 +1,7 @@
 package Hyene;
 
-import java.awt.Graphics;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
-import GameObjects.GameObject;
+public class TokenHyene implements GameObjectModel{
 
-public class TokenHyene implements GameObject{
-
-	@Override
-	public void draw(Graphics g) {		
-	}
-	
 }

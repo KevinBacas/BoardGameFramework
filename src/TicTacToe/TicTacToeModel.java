@@ -2,10 +2,10 @@ package TicTacToe;
 
 import java.awt.Graphics;
 
-import GameLoop.Model;
-import GameLoop.Player;
-import GameObjects.Board2D;
-import GameObjects.GameObject;
+import Framework.Model.Model;
+import Framework.Model.Player;
+import Framework.Model.GameObjectsModel.Board2D;
+import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class TicTacToeModel extends Model {
 	
@@ -20,21 +20,17 @@ public class TicTacToeModel extends Model {
 		m_ruleHasAlignment = new RuleHasAlignment();
 	}
 	
-	public GameObject getElement(int i, int j){
+	public GameObjectModel getElement(int i, int j){
 		return m_board.get(i, j);
 	}
 	
-	public void setElement(int i, int j, GameObject go){
+	public void setElement(int i, int j, GameObjectModel go){
 		m_board.set(i, j, go);
 	}
 
 	@Override
 	public boolean isGameEnded() {
 		return m_ruleHasAlignment.checkRule(this) || m_ruleIsBoardFull.checkRule(this);
-	}
-	
-	public void draw(Graphics g){
-		System.out.println(m_board);
 	}
 
 	public Player getWinner() {
