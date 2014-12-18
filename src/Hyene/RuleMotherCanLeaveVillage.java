@@ -8,8 +8,8 @@ public class RuleMotherCanLeaveVillage extends Rule {
 	public boolean checkRule(Model model){
 		boolean res = false;
 		if(model instanceof HyeneModel){
-			HyeneModel tttmod = (HyeneModel) model;
-			res = checkRule(tttmod);
+			HyeneModel hmod = (HyeneModel) model;
+			res = checkRule(hmod);
 		}
 		return res;
 	}

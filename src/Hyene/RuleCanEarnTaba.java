@@ -8,15 +8,15 @@ public class RuleCanEarnTaba extends Rule {
 	public boolean checkRule(Model model){
 		boolean res = false;
 		if(model instanceof HyeneModel){
-			HyeneModel tttmod = (HyeneModel) model;
-			res = checkRule(tttmod);
+			HyeneModel hmod = (HyeneModel) model;
+			res = checkRule(hmod);
 		}
 		return res;
 	}
 	
-	public boolean checkRule(HyeneModel model, int StickResult){
+	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		if(StickResult != 1)
+		if(model.getSticksResult() != 1)
 			res = false;
 		return res;
 	}

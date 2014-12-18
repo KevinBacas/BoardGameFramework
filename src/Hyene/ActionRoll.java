@@ -15,9 +15,11 @@ public class ActionRoll extends Action{
 	public void doAction(Model model) {
 		if(model instanceof HyeneModel){
 			HyeneModel hmod = (HyeneModel) model;
-			TokenStick[] sticks = new TokenStick[4];
-			for(int i=0;i<4;i++){
-				sticks[i].roll();
+			TokenStick[] sticks = hmod.getSticks();
+			for(TokenStick s : sticks){
+				s.roll();
+				// par défaut, valeur = 1 ou 2, on veut 0 ou 1
+				s.setFaceValue(s.getFaceValue() - 1);
 			}
 			hmod.setSticks(sticks);
 		}

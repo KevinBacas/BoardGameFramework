@@ -22,7 +22,7 @@ public class HyeneModel extends Model{
 		playing_board = new Board2D(NUMBER_PLAYERS, NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
-		m_sticks = new TokenStick[4];
+		m_sticks = new TokenStick[3];
 	}
 	
 	public ArrayList<GameObjectModel> getElement(int i) {
@@ -53,6 +53,14 @@ public class HyeneModel extends Model{
 	
 	public void setSticks(TokenStick[] sticks){
 		m_sticks = sticks;
+	}
+	
+	public int getSticksResult(){
+		int s = 0;
+		for(TokenStick st : m_sticks){
+			s += st.getFaceValue();
+		}
+		return s;
 	}
 	
 	public void draw(Graphics g){

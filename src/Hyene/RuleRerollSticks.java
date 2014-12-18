@@ -3,7 +3,7 @@ package Hyene;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
 
-public class RuleHyeneCanLeaveWell extends Rule {
+public class RuleRerollSticks extends Rule {
 	
 	public boolean checkRule(Model model){
 		boolean res = false;
@@ -16,13 +16,12 @@ public class RuleHyeneCanLeaveWell extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
-		if(p.getnbTaba() < 4)
+		if(model.getSticksResult() != 2)
 			res = false;
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "La hyene du joueur peut quitter le puits!";
+		return "Le joueur peut relancer les bâtonnets!";
 	}
 }
