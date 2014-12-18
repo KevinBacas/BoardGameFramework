@@ -5,7 +5,7 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyenePlayer extends Player{
 
-	GameObjectModel token;
+	TokenPlayer token;
 	
 	int nbTaba;
 	int state = 0;
