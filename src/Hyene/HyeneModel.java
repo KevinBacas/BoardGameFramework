@@ -9,7 +9,7 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
 	private final static int NUMBER_SQUARES = 57;
-	private final static int NUMBER_PLAYERS = 4;
+	private final int NUMBER_PLAYERS = m_players.size();
 	private Board2D playing_board;
 	private TokenStick[] m_sticks;
 	private ArrayList<HyenePlayer> m_winners;
@@ -43,8 +43,6 @@ public class HyeneModel extends Model{
 				break;
 			}
 		}*/
-		
-		
 		
 		playing_board.set(1, i, go);
 	}
