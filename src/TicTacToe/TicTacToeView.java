@@ -6,7 +6,7 @@ import java.awt.Graphics;
 import Framework.View.View;
 
 public class TicTacToeView extends View {
-	
+
 	public void paintComponent(Graphics g) {
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++) {
