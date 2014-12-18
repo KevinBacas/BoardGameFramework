@@ -27,8 +27,10 @@ public class ActionRoll extends Action{
 
 	@Override
 	public void undoAction(Model model) {
-		// TODO Auto-generated method stub
-		
+		if(model instanceof HyeneModel){
+			HyeneModel hmod = (HyeneModel) model;
+			hmod.setSticks(null);
+		}		
 	}
 
 }
