@@ -1,3 +1,5 @@
+package Hyene;
+
 import GameLoop.Model;
 import GameLoop.Player;
 import GameLoop.Rule;
