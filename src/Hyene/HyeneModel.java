@@ -37,6 +37,14 @@ public class HyeneModel extends Model{
 	}
 	
 	public void setElement(int i, GameObjectModel go) {
+		/*GameObjectModel objArray = m_board.get(1,i);
+		for (GameObjectModel model: objArray){
+			if (model == null){
+				model = go;
+				break;
+			}
+		}*/
+
 		playing_board.set(1, i, go);
 	}
 	
@@ -46,6 +54,14 @@ public class HyeneModel extends Model{
 	
 	public void setSticks(TokenStick[] sticks){
 		m_sticks = sticks;
+	}
+	
+	public int getSticksResult(){
+		int s = 0;
+		for(TokenStick st : m_sticks){
+			s += st.getFaceValue();
+		}
+		return s;
 	}
 	
 	public void draw(Graphics g){

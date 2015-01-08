@@ -3,7 +3,7 @@ package Hyene;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
 
-public class RuleCanEarnTaba extends Rule {
+public class RuleRerollSticks extends Rule {
 	
 	public boolean checkRule(Model model){
 		boolean res = false;
@@ -16,12 +16,12 @@ public class RuleCanEarnTaba extends Rule {
 	
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
-		if(model.getSticksResult() != 1)
+		if(model.getSticksResult() != 2)
 			res = false;
 		return res;
 	}
 	
 	public String getErrorMessage(){
-		return "Le joueur peut gagner un Taba!";
+		return "Le joueur peut relancer les bâtonnets!";
 	}
 }
