@@ -16,39 +16,27 @@ public class RuleHasAlignment extends Rule{
 	
 	public boolean checkRule(TicTacToeModel model){
 		boolean res = false;
-		res = ((model.getElement(0, 0) != null) 
-				&& (model.getElement(0, 1) != null)
-				&& model.getElement(0, 0).equals(model.getElement(0, 1))
-				&& model.getElement(0, 1).equals(model.getElement(0, 2)))
-			|| ((model.getElement(1, 0) != null) 
-				&& (model.getElement(1, 1) != null)
-				&& model.getElement(1, 0).equals(model.getElement(1, 1))
-				&& model.getElement(1, 1).equals(model.getElement(1, 2)))
-			|| ((model.getElement(2, 0) != null) 
-				&& (model.getElement(2, 1) != null)
-				&& model.getElement(2, 0).equals(model.getElement(2, 1))
-				&& model.getElement(2, 1).equals(model.getElement(2, 2)))
-			|| ((model.getElement(0, 0) != null) 
-				&& (model.getElement(1, 0) != null)
-				&& model.getElement(0, 0).equals(model.getElement(1, 0))
-				&& model.getElement(1, 0).equals(model.getElement(2, 0)))
-			|| ((model.getElement(0, 1) != null) 
-				&& (model.getElement(1, 1) != null)
-				&& model.getElement(0, 1).equals(model.getElement(1, 1))
-				&& model.getElement(1, 1).equals(model.getElement(2, 1)))
-			|| ((model.getElement(0, 2) != null) 
-				&& (model.getElement(1, 2) != null)
-				&& model.getElement(0, 2).equals(model.getElement(1, 2))
-				&& model.getElement(1, 2).equals(model.getElement(2, 2)))
-			|| ((model.getElement(0, 0) != null) 
-				&& (model.getElement(1, 1) != null)
-				&& model.getElement(0, 0).equals(model.getElement(1, 1))
-				&& model.getElement(1, 1).equals(model.getElement(2, 1)))
-			|| ((model.getElement(2, 0) != null) 
-				&& (model.getElement(1, 1) != null)
-				&& model.getElement(2, 0).equals(model.getElement(1, 1))
-				&& model.getElement(1, 1).equals(model.getElement(0, 2)));
+		res = (checkLine(model, 0, 0, 0, 1, 0, 2)
+			|| checkLine(model, 1, 0, 1, 1, 1, 2)
+			|| checkLine(model, 2, 0, 2, 1, 2, 2)
+			|| checkLine(model, 0, 0, 1, 0, 2, 0)
+			|| checkLine(model, 0, 1, 1, 1, 2, 1)
+			|| checkLine(model, 0, 2, 1, 2, 2, 2)
+			|| checkLine(model, 0, 0, 1, 1, 2, 2)
+			|| checkLine(model, 2, 0, 1, 1, 0, 2)
+			);
 		return res;
+	}
+	
+	private boolean checkEqualsPositions(TicTacToeModel model, int x1, int y1, int x2, int y2){
+		return model.getElement(x1, y1).equals(model.getElement(x2, y2));
+	}
+	
+	private boolean checkLine(TicTacToeModel model, int x1, int y1, int x2, int y2, int x3, int y3){
+		return model.getElement(x1, y1) != null
+		&& model.getElement(x2, y2) != null
+		&& checkEqualsPositions(model, x1, y1, x2, y2)
+		&& checkEqualsPositions(model, x2, y2, x3, y3);
 	}
 	
 	public String getErrorMessage(){
