@@ -44,7 +44,8 @@ public class HyeneController extends Controller{
 			else{
 				//TODO Déplacement
 			}
-			//TODO Si le joueur arrive au puit, mettre son etat sur suivant
+			//TODO Si le joueur arrive au puit
+				//p.nextPlayerState();
 			break;
 		case MOTHER_WELL:
 			Rule rmclw = new RuleMotherCanLeaveWell();
@@ -59,14 +60,51 @@ public class HyeneController extends Controller{
 			}
 			break;
 		case MOTHER_RETURN:
+			roll.doAction(model);
+			//TODO Déplacement
+			//TODO Si le joueur arrive au village
+				//p.nextPlayerState();
+				// PAS BREAK
+			//sinon break
 			break;
 		case VILLAGE:
+			model.addWinner(p);
+			if(model.checkHyenePresence() == false)
+				p.nextPlayerState();
+			break;
+		case HYENE_VILLAGE:
+			roll.doAction(model);
+			Rule rhclv = new RuleHyeneCanLeaveVillage();
+			if(rhclv.checkRule(model)){
+				p.decrementTaba(2);
+				p.nextPlayerState();
+				//TODO Déplacement
+			}
+			else{
+				p.incrementTaba(model.getSticksResult());
+			}
 			break;
 		case HYENE_TRAVEL:
+			roll.doAction(model);
+			//TODO Déplacement double
+			//TODO Si le joueur arrive au puits
+				//p.nextPlayerState();
 			break;
 		case HYENE_WELL:
+			roll.doAction(model);
+			Rule rhclw = new RuleHyeneCanLeaveWell();
+			if(rhclw.checkRule(model)){
+				p.decrementTaba(10);
+				p.nextPlayerState();
+				//TODO Déplacement double
+			}
+			else{
+				p.incrementTaba(model.getSticksResult());
+			}
 			break;
 		case HYENE_RETURN:
+			roll.doAction(model);
+			//TODO Déplacement double
 			break;
 		}
 
