@@ -14,7 +14,7 @@ public class HyeneModel extends Model{
 	private TokenStick[] m_sticks;
 	private ArrayList<HyenePlayer> m_winners;
 	private ArrayList<HyenePlayer> m_losers;
-	private HyenePlayer m_hyene;
+	private HyenePlayer m_hyene = null;
 
 	
 	public HyeneModel(){
@@ -61,6 +61,17 @@ public class HyeneModel extends Model{
 			s += st.getFaceValue();
 		}
 		return s;
+	}
+	
+	public boolean checkHyenePresence(){
+		if(m_hyene == null)
+			return false;
+		else
+			return true;
+	}
+	
+	public void addWinner(HyenePlayer p){
+		m_winners.add(p);
 	}
 	
 	public void draw(Graphics g){
