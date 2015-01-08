@@ -2,6 +2,7 @@ package Hyene;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.*;
 
 import Framework.Model.Model;
 import Framework.Model.GameObjectsModel.Board2D;
@@ -36,14 +37,6 @@ public class HyeneModel extends Model{
 	}
 	
 	public void setElement(int i, GameObjectModel go) {
-		/*GameObjectModel objArray = m_board.get(1,i);
-		for (GameObjectModel model: objArray){
-			if (model == null){
-				model = go;
-				break;
-			}
-		}*/
-		
 		playing_board.set(1, i, go);
 	}
 	
@@ -68,12 +61,17 @@ public class HyeneModel extends Model{
 		return true;
 	}
 	
-	public int findElement(GameObjectModel go) {
+	public Pair<int,int> findElement(GameObjectModel go) {
 		int i = 0;
-		do{
-			i++;
-		}while(i != playing_board.getWidth() && this.getElement(i) != go);
-		return i;
+		for(j = 0; j < NUMBER_PLAYERS;j++){
+			for(i = 0; i < NUMBER_SQUARES;i++){
+				if(this.getElement(i) != go)
+					return Pair<int,int>(2,3);
+			}
+	}
+	
+	public int getSize() {
+		return NUMBER_SQUARES;
 	}
 	
 }

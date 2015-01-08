@@ -18,8 +18,8 @@ public class ActionMove extends Action{
 			HyeneModel hmod = (HyeneModel) model;
 			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
 			int i = hmod.findElement(p.getToken());
-			if(i+x < 0 || i+x > 0) return true;
-			return false;
+			if(i+x < 0 || i+x > hmod.getSize()) return false;
+			else return true;
 		}
 		return false;
 	}
