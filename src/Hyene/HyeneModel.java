@@ -23,6 +23,9 @@ public class HyeneModel extends Model{
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[3];
+		for(int i=0;i<3;i++){
+			m_sticks[i] = new TokenStick();
+		}
 	}
 	
 	public ArrayList<GameObjectModel> getElement(int i) {
@@ -36,14 +39,6 @@ public class HyeneModel extends Model{
 	}
 	
 	public void setElement(int j, int i, GameObjectModel go) {
-		/*GameObjectModel objArray = m_board.get(1,i);
-		for (GameObjectModel model: objArray){
-			if (model == null){
-				model = go;
-				break;
-			}
-		}*/
-
 		playing_board.set(j, i, go);
 	}
 	

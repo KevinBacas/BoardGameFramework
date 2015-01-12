@@ -6,9 +6,10 @@ import Framework.Controller.Action;
 import Framework.Controller.Controller;
 import Framework.Controller.Rule;
 import Framework.Model.Model;
+import Framework.View.View;
 
 public class HyeneController extends Controller{
-
+	
 	@Override
 	public void update() {
 		HyeneModel model = getRealModel();
