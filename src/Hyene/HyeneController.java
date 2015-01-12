@@ -13,104 +13,162 @@ public class HyeneController extends Controller{
 	public void update() {
 		HyeneModel model = getRealModel();
 		HyenePlayer p = (HyenePlayer) getCurrentPlayer();
-
+		int PlayerPosition;
+		int k;
 		Scanner scanner = new Scanner(System.in);
 		
-		Action roll = new ActionRoll();
+		Action roll;
+		Action move;
 		Rule rcet = new RuleCanEarnTaba();
+		Rule rrs = new RuleRerollSticks();
 		
-		//TODO PARTOUT RuleRerollSticks mais voir pour stocker résultats continuels des dés
+		do{
+			PlayerPosition = -1;
+			k = -1;
+			
+			roll = new ActionRoll();
+			roll.doAction(model);
+			
+			switch(p.getPlayerState()){
+			case START:
+				Rule rmclv = new RuleMotherCanLeaveVillage();
+				// Si le joueur a fait 1
+				if(rcet.checkRule(model)){
+					p.incrementTaba(1);
+				}
+				// Si le joueur a au moins 1 taba
+				if(rmclv.checkRule(model)){
+					p.decrementTaba(1);
+					move = new ActionMove(model.getSticksResult());
+					move.doAction(model);
+					p.nextPlayerState();
+				}
+				break;
+			case MOTHER_TRAVEL:
+				// Si le joueur a fait 1
+				if(rcet.checkRule(model)){
+					p.incrementTaba(1);
+				}
+				else{
+					move = new ActionMove(model.getSticksResult());
+					move.doAction(model);
+				}
+				// Recuperation de la position du joueur
+				while(PlayerPosition == -1){
+					k++;
+					PlayerPosition = model.findElement(k,p.token);
+				}
+				// Si le joueur arrive au puits
+				if(PlayerPosition == model.getSize())
+					p.nextPlayerState();
+				break;
+			case MOTHER_WELL:
+				Rule rmclw = new RuleMotherCanLeaveWell();
+				if(rmclw.checkRule(model)){
+					p.decrementTaba(4);
+					p.nextPlayerState();
+					move = new ActionMove(model.getSticksResult());
+					move.doAction(model);
+				}
+				else{
+					p.incrementTaba(model.getSticksResult());
+				}
+				break;
+			case MOTHER_RETURN:
+				move = new ActionMove(model.getSticksResult());
+				move.doAction(model);
+				// Recuperation de la position du joueur
+				while(PlayerPosition == -1){
+					k++;
+					PlayerPosition = model.findElement(k,p.token);
+				}
+				// Si le joueur arrive au village
+				if(PlayerPosition != 0)
+					break;
+				else
+					p.nextPlayerState();
+			case VILLAGE:
+				model.addWinner(p);
+				if(model.checkHyenePresence() == true){
+					model.m_players.remove(p);
+					break;
+				}
+				else{
+					p.nextPlayerState();
+					model.setHyenePresence(p);
+				}
+			case HYENE_VILLAGE:
+				Rule rhclv = new RuleHyeneCanLeaveVillage();
+				if(rhclv.checkRule(model)){
+					p.decrementTaba(2);
+					p.nextPlayerState();
+					move = new ActionMove(2*model.getSticksResult());
+					move.doAction(model);
+				}
+				else{
+					p.incrementTaba(model.getSticksResult());
+				}
+				break;
+			case HYENE_TRAVEL:
+				move = new ActionMove(2*model.getSticksResult());
+				move.doAction(model);
+				// Recuperation de la position du joueur
+				while(PlayerPosition == -1){
+					k++;
+					PlayerPosition = model.findElement(k,p.token);
+				}
+				// Si le joueur arrive au puits
+				if(PlayerPosition == model.getSize())
+					p.nextPlayerState();
+				break;
+			case HYENE_WELL:
+				Rule rhclw = new RuleHyeneCanLeaveWell();
+				if(rhclw.checkRule(model)){
+					p.decrementTaba(10);
+					p.nextPlayerState();
+					move = new ActionMove(2*model.getSticksResult());
+					move.doAction(model);
+				}
+				else{
+					p.incrementTaba(model.getSticksResult());
+				}
+				break;
+			case HYENE_RETURN:
+				move = new ActionMove(2*model.getSticksResult());
+				move.doAction(model);
+				// Recuperation de la position du joueur
+				while(PlayerPosition == -1){
+					k++;
+					PlayerPosition = model.findElement(k,p.token);
+				}
+				// Recuperation de la position des autres joueurs
+				int PlayerPosition2;
+				HyenePlayer p2;
+				int size = model.m_players.size();
+				for(int i = 0; i < size ; i++){
+					p2 = (HyenePlayer) model.m_players.get(i);
+					if(p == p2)
+						i++;
+					else{
+						k = -1;
+						PlayerPosition2 = -1;
+						while(PlayerPosition2 == -1){
+							k++;
+							PlayerPosition2 = model.findElement(k,p2.token);
+						}
+						// Defaite des joueurs rattrapes par la hyene
+						if(PlayerPosition2 > PlayerPosition){
+							model.addLoser(p2);
+							model.m_players.remove(p2);
+						}
+					}
+				}
+				break;
+			}
+		}while(rrs.checkRule(model) && !model.isGameEnded());
 		
-		switch(p.getPlayerState()){
-		case START:
-			Rule rmclv = new RuleMotherCanLeaveVillage();
-			roll.doAction(model);
-			// Si le joueur a fait 1
-			if(rcet.checkRule(model)){
-				p.incrementTaba(1);
-			}
-			// Si le joueur a au moins 1 taba
-			if(rmclv.checkRule(model)){
-				p.decrementTaba(1);
-				//TODO Déplacement
-				p.nextPlayerState();
-			}
-			break;
-		case MOTHER_TRAVEL:
-			// Si le joueur a fait 1
-			if(rcet.checkRule(model)){
-				p.incrementTaba(1);
-			}
-			else{
-				//TODO Déplacement
-			}
-			//TODO Si le joueur arrive au puit
-				//p.nextPlayerState();
-			break;
-		case MOTHER_WELL:
-			Rule rmclw = new RuleMotherCanLeaveWell();
-			roll.doAction(model);
-			if(rmclw.checkRule(model)){
-				p.decrementTaba(4);
-				p.nextPlayerState();
-				//TODO Déplacement
-			}
-			else{
-				p.incrementTaba(model.getSticksResult());
-			}
-			break;
-		case MOTHER_RETURN:
-			roll.doAction(model);
-			//TODO Déplacement
-			//TODO Si le joueur arrive au village
-				//p.nextPlayerState();
-				// PAS BREAK
-			//sinon break
-			break;
-		case VILLAGE:
-			model.addWinner(p);
-			if(model.checkHyenePresence() == false)
-				p.nextPlayerState();
-			break;
-		case HYENE_VILLAGE:
-			roll.doAction(model);
-			Rule rhclv = new RuleHyeneCanLeaveVillage();
-			if(rhclv.checkRule(model)){
-				p.decrementTaba(2);
-				p.nextPlayerState();
-				//TODO Déplacement
-			}
-			else{
-				p.incrementTaba(model.getSticksResult());
-			}
-			break;
-		case HYENE_TRAVEL:
-			roll.doAction(model);
-			//TODO Déplacement double
-			//TODO Si le joueur arrive au puits
-				//p.nextPlayerState();
-			break;
-		case HYENE_WELL:
-			roll.doAction(model);
-			Rule rhclw = new RuleHyeneCanLeaveWell();
-			if(rhclw.checkRule(model)){
-				p.decrementTaba(10);
-				p.nextPlayerState();
-				//TODO Déplacement double
-			}
-			else{
-				p.incrementTaba(model.getSticksResult());
-			}
-			break;
-		case HYENE_RETURN:
-			roll.doAction(model);
-			//TODO Déplacement double
-			break;
-		}
-
-        if(!model.isGameEnded()){
-        	model.toNextPlayer();
-        }
+		if(!model.isGameEnded())
+			model.toNextPlayer();
 	}
 	
 	private HyeneModel getRealModel(){

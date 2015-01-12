@@ -70,8 +70,16 @@ public class HyeneModel extends Model{
 			return true;
 	}
 	
+	public void setHyenePresence(HyenePlayer p){
+		m_hyene = p;
+	}
+	
 	public void addWinner(HyenePlayer p){
 		m_winners.add(p);
+	}
+	
+	public void addLoser(HyenePlayer p){
+		m_losers.add(p);
 	}
 	
 	public void draw(Graphics g){
@@ -80,11 +88,9 @@ public class HyeneModel extends Model{
 
 	@Override
 	public boolean isGameEnded() {
-		for (int i = 1; i < NUMBER_SQUARES; i++){
-			if (!(playing_board.get(1, i) instanceof TokenPlayer))
-				return false;
-		}
-		return true;
+		if(m_players.size() == 1 && m_players.get(0) == m_hyene)
+			return true;
+		return false;
 	}
 	
 	public int findElement(int j, GameObjectModel go) {
