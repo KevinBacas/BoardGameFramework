@@ -20,8 +20,8 @@ public class HyeneEngine extends GameEngine{
 		HyeneController Hyene_controller = new HyeneController();
 		HyeneView Hyene_view = new HyeneView();
 
-		//Hyene_view.init(Hyene_controller);
-		//Hyene_controller.init(Hyene_model, Hyene_view);
+		Hyene_view.init(Hyene_model, Hyene_controller);
+		Hyene_controller.init(Hyene_model, Hyene_view);
 
 		Hyene_model.addPlayer(p1);
 		Hyene_model.addPlayer(p2);
