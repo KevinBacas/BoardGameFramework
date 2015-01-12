@@ -1,7 +1,6 @@
 package Hyene;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 import java.util.*;
 
 import Framework.Model.Model;
@@ -36,7 +35,7 @@ public class HyeneModel extends Model{
 		return list;
 	}
 	
-	public void setElement(int i, GameObjectModel go) {
+	public void setElement(int j, int i, GameObjectModel go) {
 		/*GameObjectModel objArray = m_board.get(1,i);
 		for (GameObjectModel model: objArray){
 			if (model == null){
@@ -45,7 +44,7 @@ public class HyeneModel extends Model{
 			}
 		}*/
 
-		playing_board.set(1, i, go);
+		playing_board.set(j, i, go);
 	}
 	
 	public TokenStick[] getSticks(){
@@ -77,13 +76,12 @@ public class HyeneModel extends Model{
 		return true;
 	}
 	
-	public Pair<int,int> findElement(GameObjectModel go) {
-		int i = 0;
-		for(j = 0; j < NUMBER_PLAYERS;j++){
-			for(i = 0; i < NUMBER_SQUARES;i++){
-				if(this.getElement(i) != go)
-					return Pair<int,int>(2,3);
-			}
+	public int findElement(int j, GameObjectModel go) {
+		for(int i = 0; i < NUMBER_SQUARES;i++){
+			if(this.getElement(i).get(j) != go)
+				return i;
+		}
+		return -1;
 	}
 	
 	public int getSize() {

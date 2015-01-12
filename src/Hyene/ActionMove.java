@@ -17,8 +17,13 @@ public class ActionMove extends Action{
 		if(model instanceof HyeneModel){
 			HyeneModel hmod = (HyeneModel) model;
 			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
-			int i = hmod.findElement(p.getToken());
-			if(i+x < 0 || i+x > hmod.getSize()) return false;
+			int PlayerPosition = -1;
+			int k = -1;
+			while(PlayerPosition == -1){
+				k++;
+				PlayerPosition = hmod.findElement(k,p.token);
+			}
+			if(PlayerPosition+x < 0 || PlayerPosition+x > hmod.getSize()) return false;
 			else return true;
 		}
 		return false;
@@ -29,13 +34,31 @@ public class ActionMove extends Action{
 		if(model instanceof HyeneModel){
 			HyeneModel hmod = (HyeneModel) model;
 			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
-			hmod.setElement(x, p.token);
+			int PlayerPosition = -1;
+			int k = -1;
+			while(PlayerPosition == -1){
+				k++;
+				PlayerPosition = hmod.findElement(k,p.token);
+			}
+			hmod.setElement(k, PlayerPosition+x, p.token);
+			hmod.setElement(k, PlayerPosition, null);
 		}
 	}
 
 	@Override
 	public void undoAction(Model model) {
-		// TODO Auto-generated method stub
+		if(model instanceof HyeneModel){
+			HyeneModel hmod = (HyeneModel) model;
+			HyenePlayer p = (HyenePlayer) hmod.m_current_player;
+			int PlayerPosition = -1;
+			int k = -1;
+			while(PlayerPosition == -1){
+				k++;
+				PlayerPosition = hmod.findElement(k,p.token);
+			}
+			hmod.setElement(k, PlayerPosition-x, p.token);
+			hmod.setElement(k, PlayerPosition, null);
+		}
 		
 	}
 

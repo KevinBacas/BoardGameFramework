@@ -9,5 +9,15 @@ public class TokenPlayer implements GameObjectModel{
 	public TokenPlayer(String _color){
 		color = _color;
 	}
+	
+	public boolean equals(Object o){
+		boolean res = false;
+		if(o instanceof TokenPlayer){
+			TokenPlayer t = (TokenPlayer) o;
+			res =  color == t.color;
+		}
+		return res;
+		
+	}
 
 }
