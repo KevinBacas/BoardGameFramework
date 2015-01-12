@@ -9,37 +9,40 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
 	private final static int NUMBER_SQUARES = 57;
-	private final int NUMBER_PLAYERS = m_players.size();
+	private final int NUMBER_PLAYERS;
 	private Board2D playing_board;
 	private TokenStick[] m_sticks;
 	private ArrayList<HyenePlayer> m_winners;
 	private ArrayList<HyenePlayer> m_losers;
 	private HyenePlayer m_hyene = null;
 
-	
-	public HyeneModel(){
+	public HyeneModel(int PlayerNumber){
 		super();
-		playing_board = new Board2D(NUMBER_PLAYERS, NUMBER_SQUARES);
+		NUMBER_PLAYERS = PlayerNumber;
+		playing_board = new Board2D(PlayerNumber, NUMBER_SQUARES);
 		m_winners = new ArrayList<HyenePlayer>();
 		m_losers = new ArrayList<HyenePlayer>();
 		m_sticks = new TokenStick[3];
 		for(int i=0;i<3;i++){
 			m_sticks[i] = new TokenStick();
 		}
+		this.setElement(0, 0, new TokenPlayer("red"));
+		this.setElement(1, 0, new TokenPlayer("blue"));
+		this.setElement(2, 0, new TokenPlayer("green"));
+		this.setElement(3, 0, new TokenPlayer("yellow"));
 	}
 	
 	public ArrayList<GameObjectModel> getElement(int i) {
 		ArrayList<GameObjectModel> list = new ArrayList<GameObjectModel>();
 		
 		for (int k = 0; k < NUMBER_PLAYERS; k++)
-			if (playing_board.get(k, i) != null)
-				list.add(playing_board.get(k, i));
+			list.add(playing_board.get(k, i));
 			
 		return list;
 	}
 	
-	public void setElement(int j, int i, GameObjectModel go) {
-		playing_board.set(j, i, go);
+	public void setElement(int PlayerNumber, int Position, GameObjectModel go) {
+		playing_board.set(PlayerNumber, Position, go);
 	}
 	
 	public TokenStick[] getSticks(){
@@ -88,10 +91,10 @@ public class HyeneModel extends Model{
 		return false;
 	}
 	
-	public int findElement(int j, GameObjectModel go) {
-		for(int i = 0; i < NUMBER_SQUARES;i++){
-			if(this.getElement(i).get(j) != go)
-				return i;
+	public int findElement(int PlayerNumber, GameObjectModel go) {
+		for(int Position = 0; Position < NUMBER_SQUARES;Position++){
+			if(this.getElement(Position).get(PlayerNumber) == go)
+				return Position;
 		}
 		return -1;
 	}

@@ -16,7 +16,7 @@ public class HyeneEngine extends GameEngine{
         System.out.print("Entrez le nom du Joueur 2 : ");
     	Player p2 = new HyenePlayer(scanner.nextLine());
 		
-		HyeneModel Hyene_model = new HyeneModel();
+		HyeneModel Hyene_model = new HyeneModel(2);
 		HyeneController Hyene_controller = new HyeneController();
 		HyeneView Hyene_view = new HyeneView();
 

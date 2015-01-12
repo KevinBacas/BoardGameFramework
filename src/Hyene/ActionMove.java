@@ -41,7 +41,7 @@ public class ActionMove extends Action{
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
 			hmod.setElement(k, PlayerPosition+x, p.token);
-			hmod.setElement(k, PlayerPosition, null);
+			hmod.setElement(k, PlayerPosition, new TokenEmpty());
 		}
 	}
 
@@ -57,7 +57,7 @@ public class ActionMove extends Action{
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
 			hmod.setElement(k, PlayerPosition-x, p.token);
-			hmod.setElement(k, PlayerPosition, null);
+			hmod.setElement(k, PlayerPosition, new TokenEmpty());
 		}
 		
 	}

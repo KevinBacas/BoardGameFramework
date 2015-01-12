@@ -17,8 +17,8 @@ public class HyeneController extends Controller{
 		int k;
 		Scanner scanner = new Scanner(System.in);
 		
-		Action roll;
-		Action move;
+		ActionRoll roll;
+		ActionMove move;
 		Rule rcet = new RuleCanEarnTaba();
 		Rule rrs = new RuleRerollSticks();
 		
@@ -52,15 +52,15 @@ public class HyeneController extends Controller{
 				else{
 					move = new ActionMove(model.getSticksResult());
 					move.doAction(model);
+					// Recuperation de la position du joueur
+					while(PlayerPosition == -1){
+						k++;
+						PlayerPosition = model.findElement(k,p.token);
+					}
+					// Si le joueur arrive au puits
+					if(PlayerPosition == model.getSize())
+						p.nextPlayerState();
 				}
-				// Recuperation de la position du joueur
-				while(PlayerPosition == -1){
-					k++;
-					PlayerPosition = model.findElement(k,p.token);
-				}
-				// Si le joueur arrive au puits
-				if(PlayerPosition == model.getSize())
-					p.nextPlayerState();
 				break;
 			case MOTHER_WELL:
 				Rule rmclw = new RuleMotherCanLeaveWell();
