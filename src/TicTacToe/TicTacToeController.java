@@ -20,10 +20,6 @@ public class TicTacToeController extends Controller {
 		}
 		return (TicTacToeModel) m;
 	}
-	
-	private boolean isValidInput(int row, int col){
-		return (row > -1 && col > -1 && row < 3 && col < 3);
-	}
 
 	@Override
 	public void receiveAction(Action a) {
