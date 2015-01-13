@@ -40,7 +40,8 @@ public class HyeneController extends Controller{
 				if(rmclv.checkRule(model)){
 					p.decrementTaba(1);
 					move = new ActionMove(model.getSticksResult());
-					move.doAction(model);
+					if(move.isLegal(model))
+						move.doAction(model);
 					p.nextPlayerState();
 				}
 				break;
@@ -51,7 +52,8 @@ public class HyeneController extends Controller{
 				}
 				else{
 					move = new ActionMove(model.getSticksResult());
-					move.doAction(model);
+					if(move.isLegal(model))
+						move.doAction(model);
 					// Recuperation de la position du joueur
 					while(PlayerPosition == -1){
 						k++;
@@ -68,7 +70,8 @@ public class HyeneController extends Controller{
 					p.decrementTaba(4);
 					p.nextPlayerState();
 					move = new ActionMove(model.getSticksResult());
-					move.doAction(model);
+					if(move.isLegal(model))
+						move.doAction(model);
 				}
 				else{
 					p.incrementTaba(model.getSticksResult());
@@ -76,7 +79,8 @@ public class HyeneController extends Controller{
 				break;
 			case MOTHER_RETURN:
 				move = new ActionMove(model.getSticksResult());
-				move.doAction(model);
+				if(move.isLegal(model))
+					move.doAction(model);
 				// Recuperation de la position du joueur
 				while(PlayerPosition == -1){
 					k++;
@@ -103,7 +107,8 @@ public class HyeneController extends Controller{
 					p.decrementTaba(2);
 					p.nextPlayerState();
 					move = new ActionMove(2*model.getSticksResult());
-					move.doAction(model);
+					if(move.isLegal(model))
+						move.doAction(model);
 				}
 				else{
 					p.incrementTaba(model.getSticksResult());
@@ -111,7 +116,8 @@ public class HyeneController extends Controller{
 				break;
 			case HYENE_TRAVEL:
 				move = new ActionMove(2*model.getSticksResult());
-				move.doAction(model);
+				if(move.isLegal(model))
+					move.doAction(model);
 				// Recuperation de la position du joueur
 				while(PlayerPosition == -1){
 					k++;
@@ -127,7 +133,8 @@ public class HyeneController extends Controller{
 					p.decrementTaba(10);
 					p.nextPlayerState();
 					move = new ActionMove(2*model.getSticksResult());
-					move.doAction(model);
+					if(move.isLegal(model))
+						move.doAction(model);
 				}
 				else{
 					p.incrementTaba(model.getSticksResult());
@@ -135,7 +142,8 @@ public class HyeneController extends Controller{
 				break;
 			case HYENE_RETURN:
 				move = new ActionMove(2*model.getSticksResult());
-				move.doAction(model);
+				if(move.isLegal(model))
+					move.doAction(model);
 				// Recuperation de la position du joueur
 				while(PlayerPosition == -1){
 					k++;

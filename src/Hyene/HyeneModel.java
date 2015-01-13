@@ -28,8 +28,6 @@ public class HyeneModel extends Model{
 		}
 		this.setElement(0, 0, new TokenPlayer("red"));
 		this.setElement(1, 0, new TokenPlayer("blue"));
-		this.setElement(2, 0, new TokenPlayer("green"));
-		this.setElement(3, 0, new TokenPlayer("yellow"));
 	}
 	
 	public ArrayList<GameObjectModel> getElement(int i) {
