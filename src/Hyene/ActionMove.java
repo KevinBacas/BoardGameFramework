@@ -23,7 +23,7 @@ public class ActionMove extends Action{
 				k++;
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
-			if(PlayerPosition+x < 0 || PlayerPosition+x > hmod.getSize()) return false;
+			if(PlayerPosition+x < 0 || PlayerPosition+x >= hmod.getSize()) return false;
 			else return true;
 		}
 		return false;
