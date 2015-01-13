@@ -9,7 +9,7 @@ import Framework.Model.GameObjectsModel.Board2D;
 import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
-	private final static int NUMBER_SQUARES = 57;
+	private final static int NUMBER_SQUARES = 10;
 	private final int NUMBER_PLAYERS;
 	private Board2D playing_board;
 	private TokenStick[] m_sticks;
@@ -45,8 +45,8 @@ public class HyeneModel extends Model{
 	@Override
 	public void addPlayer(Player p){
 		int PlayerNum = m_players.size();
-		super.addPlayer(p);
-		this.setElement(PlayerNum, 0, new TokenPlayer(PlayerNum));
+		super.addPlayer((HyenePlayer) p);
+		this.setElement(PlayerNum, 0, ((HyenePlayer)p).getToken());
 		//TEST
 		int pos = -1;
 		int qq = -1;
@@ -108,7 +108,7 @@ public class HyeneModel extends Model{
 	public int findElement(int PlayerNumber, GameObjectModel go) {
 		for(int Position = 0; Position < NUMBER_SQUARES; Position++){
 			if(this.getElement(Position).get(PlayerNumber) == go){
-				System.out.println("QQQQQQQQ" + Position + " num " + PlayerNumber);
+				//System.out.println("QQQQQQQQ" + Position + " num " + PlayerNumber);
 				return Position;
 			}
 		}
