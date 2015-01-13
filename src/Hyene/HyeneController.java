@@ -79,7 +79,8 @@ public class HyeneController extends Controller{
 				}
 				break;
 			case MOTHER_RETURN:
-				move = new ActionMove(model.getSticksResult());
+				System.out.print("retour");
+				move = new ActionMove(-model.getSticksResult());
 				if(move.isLegal(model))
 					move.doAction(model);
 				// Recuperation de la position du joueur
@@ -142,7 +143,8 @@ public class HyeneController extends Controller{
 				}
 				break;
 			case HYENE_RETURN:
-				move = new ActionMove(2*model.getSticksResult());
+				System.out.print("retour");
+				move = new ActionMove(-2*model.getSticksResult());
 				if(move.isLegal(model))
 					move.doAction(model);
 				// Recuperation de la position du joueur
