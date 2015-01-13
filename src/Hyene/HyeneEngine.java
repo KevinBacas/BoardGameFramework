@@ -12,9 +12,9 @@ public class HyeneEngine extends GameEngine{
 	public void init(){
     	Scanner scanner = new Scanner(System.in);
         System.out.print("Entrez le nom du Joueur 1 : ");
-    	Player p1 = new HyenePlayer(scanner.nextLine());
+    	Player p1 = new HyenePlayer(scanner.nextLine(),new TokenPlayer(0));
         System.out.print("Entrez le nom du Joueur 2 : ");
-    	Player p2 = new HyenePlayer(scanner.nextLine());
+    	Player p2 = new HyenePlayer(scanner.nextLine(),new TokenPlayer(1));
 		
 		HyeneModel Hyene_model = new HyeneModel(2);
 		Hyene_model.addPlayer(p1);

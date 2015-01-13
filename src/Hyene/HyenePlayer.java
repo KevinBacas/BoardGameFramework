@@ -11,9 +11,10 @@ public class HyenePlayer extends Player{
 	HyenePlayerState m_state = HyenePlayerState.START;
 	
 	
-	public HyenePlayer(String name) {
+	public HyenePlayer(String name, GameObjectModel go) {
 		super(name);
 		m_nbTaba = 0;
+		token = (TokenPlayer) go;
 	}
 	
 	public GameObjectModel getToken() {

@@ -29,14 +29,14 @@ public class HyeneController extends Controller{
 			qq++;
 			pos = model.findElement(qq,p.token);
 		}
-		System.out.println("Player " + p + " Position " + pos);
-		System.out.println(p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
+		//System.out.println("Player " + p + " Position " + pos);
+		//System.out.println(p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
 		//TEST
 		
 		do{
 			PlayerPosition = -1;
 			k = -1;
-			
+			System.out.println("player " + p + " " + p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
 			roll = new ActionRoll();
 			roll.doAction(model);
 			
