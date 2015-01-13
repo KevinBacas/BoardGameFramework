@@ -40,8 +40,10 @@ public class ActionMove extends Action{
 				k++;
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
-			hmod.setElement(k, PlayerPosition+x, p.token);
-			hmod.setElement(k, PlayerPosition, new TokenEmpty());
+			if(x != 0){
+				hmod.setElement(k, PlayerPosition+x, p.token);
+				hmod.setElement(k, PlayerPosition, new TokenEmpty());
+			}
 		}
 	}
 
@@ -56,8 +58,10 @@ public class ActionMove extends Action{
 				k++;
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
-			hmod.setElement(k, PlayerPosition-x, p.token);
-			hmod.setElement(k, PlayerPosition, new TokenEmpty());
+			if(x != 0){
+				hmod.setElement(k, PlayerPosition-x, p.token);
+				hmod.setElement(k, PlayerPosition, new TokenEmpty());
+			}
 		}
 		
 	}
