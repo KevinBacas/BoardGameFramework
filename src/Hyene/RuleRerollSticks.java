@@ -15,10 +15,9 @@ public class RuleRerollSticks extends Rule {
 	}
 	
 	public boolean checkRule(HyeneModel model){
-		boolean res = true;
 		if(model.getSticksResult() != 2)
-			res = false;
-		return res;
+			return false;
+		return true;
 	}
 	
 	public String getErrorMessage(){

@@ -22,12 +22,27 @@ public class HyeneController extends Controller{
 		Rule rcet = new RuleCanEarnTaba();
 		Rule rrs = new RuleRerollSticks();
 		
+		//TEST
+		int pos = -1;
+		int qq = -1;
+		while(pos == -1){
+			qq++;
+			pos = model.findElement(qq,p.token);
+		}
+		System.out.println("Player " + p + " Position " + pos);
+		System.out.println(p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
+		//TEST
+		
 		do{
 			PlayerPosition = -1;
 			k = -1;
 			
 			roll = new ActionRoll();
 			roll.doAction(model);
+			
+			//TEST
+			System.out.println("Resultat dés = " + model.getSticksResult());
+			//TEST
 			
 			switch(p.getPlayerState()){
 			case START:
@@ -57,11 +72,10 @@ public class HyeneController extends Controller{
 					// Recuperation de la position du joueur
 					while(PlayerPosition == -1){
 						k++;
-						System.out.println("player :" + p);
 						PlayerPosition = model.findElement(k,p.token);
 					}
 					// Si le joueur arrive au puits
-					if(PlayerPosition == model.getSize())
+					if(PlayerPosition == model.getSize() - 1)
 						p.nextPlayerState();
 				}
 				break;
@@ -70,7 +84,7 @@ public class HyeneController extends Controller{
 				if(rmclw.checkRule(model)){
 					p.decrementTaba(4);
 					p.nextPlayerState();
-					move = new ActionMove(model.getSticksResult());
+					move = new ActionMove(-model.getSticksResult());
 					if(move.isLegal(model))
 						move.doAction(model);
 				}
@@ -79,7 +93,6 @@ public class HyeneController extends Controller{
 				}
 				break;
 			case MOTHER_RETURN:
-				System.out.print("retour");
 				move = new ActionMove(-model.getSticksResult());
 				if(move.isLegal(model))
 					move.doAction(model);
@@ -126,7 +139,7 @@ public class HyeneController extends Controller{
 					PlayerPosition = model.findElement(k,p.token);
 				}
 				// Si le joueur arrive au puits
-				if(PlayerPosition == model.getSize())
+				if(PlayerPosition == model.getSize() - 1)
 					p.nextPlayerState();
 				break;
 			case HYENE_WELL:
@@ -134,7 +147,7 @@ public class HyeneController extends Controller{
 				if(rhclw.checkRule(model)){
 					p.decrementTaba(10);
 					p.nextPlayerState();
-					move = new ActionMove(2*model.getSticksResult());
+					move = new ActionMove(-2*model.getSticksResult());
 					if(move.isLegal(model))
 						move.doAction(model);
 				}
@@ -143,7 +156,6 @@ public class HyeneController extends Controller{
 				}
 				break;
 			case HYENE_RETURN:
-				System.out.print("retour");
 				move = new ActionMove(-2*model.getSticksResult());
 				if(move.isLegal(model))
 					move.doAction(model);
@@ -175,6 +187,16 @@ public class HyeneController extends Controller{
 				break;
 			}
 		}while(rrs.checkRule(model) && !model.isGameEnded());
+		
+		//TEST
+		pos = -1;
+		qq = -1;
+		while(pos == -1){
+			qq++;
+			pos = model.findElement(qq,p.token);
+		}
+		System.out.println("player " + p + " position " + pos);
+		//TEST
 		
 		if(!model.isGameEnded())
 			model.toNextPlayer();

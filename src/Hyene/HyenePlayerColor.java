@@ -1,8 +1,8 @@
 package Hyene;
 
 public enum HyenePlayerColor {
-	RED,
 	BLUE,
+	RED,
 	GREEN,
 	YELLOW;
 	

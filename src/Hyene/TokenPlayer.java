@@ -14,10 +14,9 @@ public class TokenPlayer implements GameObjectModel{
 		boolean res = false;
 		if(o instanceof TokenPlayer){
 			TokenPlayer t = (TokenPlayer) o;
-			res =  color == t.color;
+			res = (color == t.color);
 		}
 		return res;
-		
 	}
 
 }
