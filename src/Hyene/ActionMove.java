@@ -28,7 +28,7 @@ public class ActionMove extends Action{
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void doAction(Model model) {
 		if(model instanceof HyeneModel){
@@ -41,7 +41,15 @@ public class ActionMove extends Action{
 				PlayerPosition = hmod.findElement(k,p.token);
 			}
 			if(x != 0){
-				hmod.setElement(k, PlayerPosition+x, p.token);
+				if(this.isLegal(model)){
+					hmod.setElement(k, PlayerPosition+x, p.token);
+				}
+				else{
+					if(PlayerPosition + x > 0)
+						hmod.setElement(k, ((HyeneModel) model).getSize()-1, p.token);
+					else
+						hmod.setElement(k, 0, p.token);
+				}
 				hmod.setElement(k, PlayerPosition, new TokenEmpty());
 			}
 		}

@@ -9,7 +9,7 @@ import Framework.Model.GameObjectsModel.Board2D;
 import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class HyeneModel extends Model{
-	private final static int NUMBER_SQUARES = 10;
+	private final static int NUMBER_SQUARES = 57;
 	private final int NUMBER_PLAYERS;
 	private Board2D playing_board;
 	private TokenStick[] m_sticks;
@@ -72,6 +72,10 @@ public class HyeneModel extends Model{
 			return true;
 	}
 	
+	public HyenePlayer getHyene(){
+		return m_hyene;
+	}
+	
 	public void setHyenePresence(HyenePlayer p){
 		m_hyene = p;
 	}
@@ -90,8 +94,9 @@ public class HyeneModel extends Model{
 
 	@Override
 	public boolean isGameEnded() {
-		if(m_players.size() == 1 && m_players.get(0) == m_hyene)
+		if(m_winners.size() + m_losers.size() == NUMBER_PLAYERS){
 			return true;
+		}
 		return false;
 	}
 	

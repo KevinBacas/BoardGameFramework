@@ -17,7 +17,7 @@ public class RuleHyeneCanLeaveWell extends Rule {
 	public boolean checkRule(HyeneModel model){
 		boolean res = true;
 		HyenePlayer p = (HyenePlayer) model.getCurrentPlayer();
-		if(p.getnbTaba() < 4)
+		if(p.getnbTaba() < 10)
 			res = false;
 		return res;
 	}

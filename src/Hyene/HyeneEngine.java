@@ -35,6 +35,9 @@ public class HyeneEngine extends GameEngine{
 	@Override
 	public void end() {
 		HyeneModel model = (HyeneModel) getModel();
+		
+		System.out.println("C'EST FINI!!");
+		System.out.println("Joueur gagnant : " + model.getHyene().getName());
 		/*
 		Player p = model.getWinner();
 		System.out.println("La partie est terminée");
