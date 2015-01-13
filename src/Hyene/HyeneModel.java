@@ -47,16 +47,6 @@ public class HyeneModel extends Model{
 		int PlayerNum = m_players.size();
 		super.addPlayer((HyenePlayer) p);
 		this.setElement(PlayerNum, 0, ((HyenePlayer)p).getToken());
-		//TEST
-		int pos = -1;
-		int qq = -1;
-		while(pos == -1){
-			qq++;
-			pos = this.findElement(qq,((HyenePlayer)p).token);
-		}
-		System.out.println("DEBUT!!! Player " + p + " Position " + pos);
-		System.out.println("DEBUT!!! " + ((HyenePlayer)p).getPlayerState() + "  " + ((HyenePlayer)p).getnbTaba() + " Tabas ");
-		//TEST
 	}
 	
 	public TokenStick[] getSticks(){

@@ -25,18 +25,22 @@ public class HyeneController extends Controller{
 		//TEST
 		int pos = -1;
 		int qq = -1;
-		while(pos == -1){
-			qq++;
-			pos = model.findElement(qq,p.token);
-		}
-		//System.out.println("Player " + p + " Position " + pos);
-		//System.out.println(p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
 		//TEST
 		
 		do{
+			//TEST
+			pos = -1;
+			qq = -1;
+			while(pos == -1){
+				qq++;
+				pos = model.findElement(qq,p.token);
+			}
+			System.out.println("Player " + p + " Position " + pos + " " + p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
+			//TEST
+			
 			PlayerPosition = -1;
 			k = -1;
-			System.out.println("player " + p + " " + p.getPlayerState() + "  " + p.getnbTaba() + " Tabas ");
+
 			roll = new ActionRoll();
 			roll.doAction(model);
 			
@@ -93,19 +97,25 @@ public class HyeneController extends Controller{
 				}
 				break;
 			case MOTHER_RETURN:
-				move = new ActionMove(-model.getSticksResult());
-				if(move.isLegal(model))
-					move.doAction(model);
-				// Recuperation de la position du joueur
-				while(PlayerPosition == -1){
-					k++;
-					PlayerPosition = model.findElement(k,p.token);
+				// Si le joueur a fait 1
+				if(rcet.checkRule(model)){
+					p.incrementTaba(1);
 				}
-				// Si le joueur arrive au village
-				if(PlayerPosition != 0)
-					break;
-				else
-					p.nextPlayerState();
+				else{
+					move = new ActionMove(-model.getSticksResult());
+					if(move.isLegal(model))
+						move.doAction(model);
+					// Recuperation de la position du joueur
+					while(PlayerPosition == -1){
+						k++;
+						PlayerPosition = model.findElement(k,p.token);
+					}
+					// Si le joueur arrive au village
+					if(PlayerPosition != 0)
+						break;
+					else
+						p.nextPlayerState();
+				}
 			case VILLAGE:
 				model.addWinner(p);
 				if(model.checkHyenePresence() == true){
