@@ -55,6 +55,7 @@ public class HyeneController extends Controller{
 					// Recuperation de la position du joueur
 					while(PlayerPosition == -1){
 						k++;
+						System.out.println("player :" + p);
 						PlayerPosition = model.findElement(k,p.token);
 					}
 					// Si le joueur arrive au puits
@@ -149,18 +150,16 @@ public class HyeneController extends Controller{
 					p2 = (HyenePlayer) model.m_players.get(i);
 					if(p == p2)
 						i++;
-					else{
-						k = -1;
-						PlayerPosition2 = -1;
-						while(PlayerPosition2 == -1){
-							k++;
-							PlayerPosition2 = model.findElement(k,p2.token);
-						}
-						// Defaite des joueurs rattrapes par la hyene
-						if(PlayerPosition2 > PlayerPosition){
-							model.addLoser(p2);
-							model.m_players.remove(p2);
-						}
+					k = -1;
+					PlayerPosition2 = -1;
+					while(PlayerPosition2 == -1){
+						k++;
+						PlayerPosition2 = model.findElement(k,p2.token);
+					}
+					// Defaite des joueurs rattrapes par la hyene
+					if(PlayerPosition2 > PlayerPosition){
+						model.addLoser(p2);
+						model.m_players.remove(p2);
 					}
 				}
 				break;

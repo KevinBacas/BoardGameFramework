@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.*;
 
 import Framework.Model.Model;
+import Framework.Model.Player;
 import Framework.Model.GameObjectsModel.Board2D;
 import Framework.Model.GameObjectsModel.GameObjectModel;
 
@@ -26,10 +27,6 @@ public class HyeneModel extends Model{
 		for(int i=0;i<3;i++){
 			m_sticks[i] = new TokenStick();
 		}
-		this.setElement(0, 0, new TokenPlayer("red"));
-		this.setElement(1, 0, new TokenPlayer("blue"));
-		this.setElement(2, 0, new TokenPlayer("green"));
-		this.setElement(3, 0, new TokenPlayer("yellow"));
 	}
 	
 	public ArrayList<GameObjectModel> getElement(int i) {
@@ -43,6 +40,13 @@ public class HyeneModel extends Model{
 	
 	public void setElement(int PlayerNumber, int Position, GameObjectModel go) {
 		playing_board.set(PlayerNumber, Position, go);
+	}
+	
+	@Override
+	public void addPlayer(Player p){
+		int PlayerNum = m_players.size();
+		super.addPlayer(p);
+		this.setElement(PlayerNum, 0, new TokenPlayer(PlayerNum));
 	}
 	
 	public TokenStick[] getSticks(){

@@ -4,10 +4,10 @@ import Framework.Model.GameObjectsModel.GameObjectModel;
 
 public class TokenPlayer implements GameObjectModel{
 
-	String color;
+	HyenePlayerColor color = HyenePlayerColor.RED;
 	
-	public TokenPlayer(String _color){
-		color = _color;
+	public TokenPlayer(int c){
+		color = color.setColor(c);
 	}
 	
 	public boolean equals(Object o){

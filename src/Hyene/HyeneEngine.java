@@ -17,14 +17,15 @@ public class HyeneEngine extends GameEngine{
     	Player p2 = new HyenePlayer(scanner.nextLine());
 		
 		HyeneModel Hyene_model = new HyeneModel(2);
-		HyeneController Hyene_controller = new HyeneController();
-		HyeneView Hyene_view = new HyeneView();
-
-		Hyene_view.init(Hyene_model, Hyene_controller);
-		Hyene_controller.init(Hyene_model, Hyene_view);
-
 		Hyene_model.addPlayer(p1);
 		Hyene_model.addPlayer(p2);
+		
+		HyeneController Hyene_controller = new HyeneController();
+		
+		HyeneView Hyene_view = new HyeneView();
+		Hyene_view.init(Hyene_model, Hyene_controller);
+		
+		Hyene_controller.init(Hyene_model, Hyene_view);
 
 		setModel(Hyene_model);
 		//setView(Hyene_view);
