@@ -47,6 +47,7 @@ public class HyeneModel extends Model{
 		int PlayerNum = m_players.size();
 		super.addPlayer(p);
 		this.setElement(PlayerNum, 0, new TokenPlayer(PlayerNum));
+		
 		//TEST
 		int pos = -1;
 		int qq = -1;
